@@ -1,5 +1,5 @@
-import { deleteSingleCreator, getCreatorShoes } from './creatorData';
-import { deleteSingleSneaker } from './shoeData';
+import { deleteSingleCreator, getCreatorShoes, getSingleCreator } from './creatorData';
+import { deleteSingleSneaker, getSingleSneaker } from './shoeData';
 
 const deleteCreatorKicks = (creatorId) => new Promise((resolve, reject) => {
   getCreatorShoes(creatorId).then((sneakersArray) => {
@@ -12,4 +12,21 @@ const deleteCreatorKicks = (creatorId) => new Promise((resolve, reject) => {
   }).catch((error) => reject(error));
 });
 
-export default { deleteCreatorKicks };
+const viewSneakerDetails = (sneakerFirebaseKey) => new Promise((resolve, reject) => {
+  getSingleSneaker(sneakerFirebaseKey)
+    .then((sneakerObject) => {
+      getSingleCreator(sneakerObject.creator_id)
+        .then((creatorObject) => {
+          resolve({ creatorObject, ...sneakerObject });
+        });
+    }).catch((error) => reject(error));
+});
+
+const viewCreatorDetails = (creatorFirebaseKey) => new Promise((resolve, reject) => {
+  Promise.all([getSingleCreator(creatorFirebaseKey), getCreatorShoes(creatorFirebaseKey)])
+    .then(([creatorObject, creatorShoesArray]) => {
+      resolve({ ...creatorObject, sneakers: creatorShoesArray });
+    }).catch((error) => reject(error));
+});
+
+export { deleteCreatorKicks, viewSneakerDetails, viewCreatorDetails };
