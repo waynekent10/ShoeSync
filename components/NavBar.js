@@ -20,6 +20,15 @@ export default function NavBar() {
             <Link passHref href="/">
               <Nav.Link>Home</Nav.Link>
             </Link>
+            <Link passHref href="/creators">
+              <Nav.Link>Creators</Nav.Link>
+            </Link>
+            <Link passHref href="/sneakers">
+              <Nav.Link>Sneakers</Nav.Link>
+            </Link>
+            <Link passHref href="/mycollection">
+              <Nav.Link>My Collection</Nav.Link>
+            </Link>
             <Button variant="danger" onClick={signOut}>Sign Out</Button>
           </Nav>
         </Navbar.Collapse>
