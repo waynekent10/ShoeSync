@@ -15,10 +15,10 @@ function CreatorCard({ creatorObj, onUpdate }) {
       <Card.Img variant="top" src={creatorObj.image} alt={creatorObj.name} style={{ height: '400px' }} />
       <Card.Body>
         <Card.Title>{creatorObj.name}</Card.Title>
-        <Link href={`/creator/${creatorObj.firebaseKey}`} passHref>
+        <Link href={`/creators/${creatorObj.firebaseKey}`} passHref>
           <Button variant="primary" className="m-2">VIEW</Button>
         </Link>
-        <Link href={`/creator/edit/${creatorObj.firebaseKey}`} passHref>
+        <Link href={`/creators/edit/${creatorObj.firebaseKey}`} passHref>
           <Button variant="info">EDIT</Button>
         </Link>
         <Button variant="danger" onClick={deleteThisCreator} className="m-2">
