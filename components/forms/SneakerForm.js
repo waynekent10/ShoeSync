@@ -159,7 +159,7 @@ function SneakerForm({ obj }) {
       />
 
       {/* SUBMIT BUTTON  */}
-      <Button type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Sneakers</Button>
+      <Button type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Sneaker</Button>
     </Form>
   );
 }
