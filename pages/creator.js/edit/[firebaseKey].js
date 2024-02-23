@@ -6,7 +6,7 @@ import CreatorForm from '../../../components/forms/CreatorForm';
 export default function EditCreator() {
   const [editItem, setEditItem] = useState({});
   const router = useRouter();
-  // TODO: grab the firebasekey
+
   const { firebaseKey } = router.query;
 
   useEffect(() => {

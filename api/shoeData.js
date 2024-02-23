@@ -70,7 +70,7 @@ const updateSneaker = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const getCreatorShoes = (firebaseKey) => new Promise((resolve, reject) => {
+const getShoesByCreator = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/sneakers.json?orderBy="creator_id"&equalTo="${firebaseKey}"`, {
     method: 'GET',
     headers: {
@@ -103,6 +103,6 @@ export {
   getSingleSneaker,
   deleteSingleSneaker,
   updateSneaker,
-  getCreatorShoes,
+  getShoesByCreator,
   favoriteKicks,
 };
