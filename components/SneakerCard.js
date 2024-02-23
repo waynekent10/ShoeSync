@@ -5,16 +5,16 @@ import Link from 'next/link';
 
 function SneakerCard({ sneakerObj, onUpdate }) {
   const deleteThisSneaker = () => {
-    if (window.confirm(`Delete ${sneakerObj.name}?`)) {
+    if (window.confirm(`Delete ${sneakerObj.shoe_name}?`)) {
       deleteThisSneaker(sneakerObj.firebaseKey).then(() => onUpdate());
     }
   };
 
   return (
     <Card style={{ width: '18rem', margin: '10px' }}>
-      <Card.Img variant="top" src={sneakerObj.image} alt={sneakerObj.name} style={{ height: '400px' }} />
+      <Card.Img variant="top" src={sneakerObj.image} alt={sneakerObj.shoe_name} style={{ height: '400px' }} />
       <Card.Body>
-        <Card.Title>{sneakerObj.name}</Card.Title>
+        <Card.Title>{sneakerObj.shoe_name}</Card.Title>
         <Link href={`/sneaker/${sneakerObj.firebaseKey}`} passHref>
           <Button variant="primary" className="m-2">VIEW</Button>
         </Link>
@@ -31,7 +31,7 @@ function SneakerCard({ sneakerObj, onUpdate }) {
 
 SneakerCard.propTypes = {
   sneakerObj: PropTypes.shape({
-    name: PropTypes.string,
+    shoe_name: PropTypes.string,
     original_release_year: PropTypes.string,
     image: PropTypes.string,
     manufacturer: PropTypes.string,
