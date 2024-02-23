@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '../utils/context/authContext';
 import SneakerCard from '../components/SneakerCard';
+import { getSneakers } from '../api/shoeData';
 
-export default function Creator() {
-  const [creators, setCreators] = useState([]);
+export default function Sneakers() {
+  const [sneakers, setSneakers] = useState([]);
   const { user } = useAuth();
 
   const getAllSneakers = () => {
-    getAllSneakers(user.uid).then(setCreators);
+    getSneakers(user.uid).then(setSneakers);
   };
   useEffect(() => {
     getAllSneakers();
@@ -16,8 +17,8 @@ export default function Creator() {
 
   return (
     <div>
-      {creators.map((creator) => (
-        <SneakerCard key={creator.firebaseKey} creatorObj={creator} onUpdate={getAllSneakers} />
+      {sneakers.map((sneaker) => (
+        <SneakerCard key={sneaker.firebaseKey} sneakerObj={sneaker} onUpdate={getAllSneakers} />
       ))}
     </div>
   );
