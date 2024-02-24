@@ -31,13 +31,13 @@ function CreatorForm({ obj }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (obj.firebaseKey) {
-      updateCreator(formInput).then(() => router.push(`/creators/${obj.firebaseKey}`));
+      updateCreator(formInput).then(() => router.push(`/creator/${obj.firebaseKey}`));
     } else {
       const payload = { ...formInput, uid: user.uid };
       createCreator(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateCreator(patchPayload).then(() => {
-          router.push('/creators');
+          router.push('/creator');
         });
       });
     }
