@@ -45,7 +45,7 @@ function SneakerForm({ obj }) {
       createSneaker(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateSneaker(patchPayload).then(() => {
-          router.push('/');
+          router.push('/sneakers');
         });
       });
     }
@@ -58,7 +58,7 @@ function SneakerForm({ obj }) {
         <Form.Control
           type="text"
           placeholder="Enter Shoe Name"
-          name="shoe name"
+          name="name"
           value={formInput.shoe_name}
           onChange={handleChange}
           required
@@ -67,9 +67,9 @@ function SneakerForm({ obj }) {
 
       <FloatingLabel controlId="floatingInput2" label="Original release date" className="mb-3">
         <Form.Control
-          type="url"
+          type="text"
           placeholder="Enter Original release date"
-          name="image"
+          name="date"
           value={formInput.orignal_release_date}
           onChange={handleChange}
           required

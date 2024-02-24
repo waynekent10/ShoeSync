@@ -12,7 +12,6 @@ export default function ViewCreator() {
   const viewCreatorShoes = () => {
     viewCreatorDetails(firebaseKey).then(setCreatorDetails);
   };
-
   useEffect(() => {
     viewCreatorDetails(firebaseKey).then(setCreatorDetails);
   }, [firebaseKey]);
@@ -20,10 +19,16 @@ export default function ViewCreator() {
     <>
       <div className="mt-5 d-flex flex-wrap">
         <div className="d-flex flex-column">
-          <img src={creatorDetails.image} alt={creatorDetails.last_name} style={{ width: '300px' }} />
+          <img src={creatorDetails.image} alt={creatorDetails.name} style={{ width: '300px' }} />
         </div>
 
-        <div className="text-white ms-5 details" />
+        <div className="text-white ms-5 details">
+          <h5>
+            {creatorDetails.name}
+            {creatorDetails.company}
+          </h5>
+          <p>{creatorDetails.bio}</p>
+        </div>
       </div>
       <hr />
       <div className="d-flex flex-wrap">
