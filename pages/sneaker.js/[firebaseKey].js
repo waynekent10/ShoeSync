@@ -19,7 +19,8 @@ export default function ViewSneaker() {
         <Image src={sneakerDetails.image} alt={sneakerDetails.shoe_name} style={{ width: '300px' }} />
       </div>
       <div className="text-white ms-5 details">
-        <h5>{sneakerDetails.shoe_name}</h5>
+        <h5>{sneakerDetails.shoe_namename}</h5>
+        <p>{sneakerDetails.original_release_date}</p>
         <p>{sneakerDetails.brand}</p>
       </div>
     </div>

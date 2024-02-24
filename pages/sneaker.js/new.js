@@ -1,6 +1,6 @@
 import React from 'react';
 import SneakerForm from '../../components/forms/SneakerForm';
 
-export default function AddAuthor() {
+export default function AddSneaker() {
   return <SneakerForm />;
 }

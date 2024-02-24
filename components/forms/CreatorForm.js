@@ -31,13 +31,13 @@ function CreatorForm({ obj }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (obj.firebaseKey) {
-      updateCreator(formInput).then(() => router.push(`/author/${obj.firebaseKey}`));
+      updateCreator(formInput).then(() => router.push(`/creator/${obj.firebaseKey}`));
     } else {
       const payload = { ...formInput, uid: user.uid };
       createCreator(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateCreator(patchPayload).then(() => {
-          router.push('/creators');
+          router.push('/creator');
         });
       });
     }
@@ -74,7 +74,7 @@ function CreatorForm({ obj }) {
           type="text"
           placeholder="Enter Company"
           name="company"
-          value={formInput.name}
+          value={formInput.company}
           onChange={handleChange}
           required
         />

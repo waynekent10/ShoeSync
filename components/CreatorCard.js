@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Card } from 'react-bootstrap';
 import Link from 'next/link';
+import { deleteSingleCreator } from '../api/creatorData';
 
 function CreatorCard({ creatorObj, onUpdate }) {
   const deleteThisCreator = () => {
     if (window.confirm(`Delete ${creatorObj.name}?`)) {
-      deleteThisCreator(creatorObj.firebaseKey).then(() => onUpdate());
+      deleteSingleCreator(creatorObj.firebaseKey).then(() => onUpdate());
     }
   };
 
@@ -15,10 +16,10 @@ function CreatorCard({ creatorObj, onUpdate }) {
       <Card.Img variant="top" src={creatorObj.image} alt={creatorObj.name} style={{ height: '400px' }} />
       <Card.Body>
         <Card.Title>{creatorObj.name}</Card.Title>
-        <Link href={`/creators/${creatorObj.firebaseKey}`} passHref>
+        <Link href={`/creator/${creatorObj.firebaseKey}`} passHref>
           <Button variant="primary" className="m-2">VIEW</Button>
         </Link>
-        <Link href={`/creators/edit/${creatorObj.firebaseKey}`} passHref>
+        <Link href={`/creator/edit/${creatorObj.firebaseKey}`} passHref>
           <Button variant="info">EDIT</Button>
         </Link>
         <Button variant="danger" onClick={deleteThisCreator} className="m-2">
