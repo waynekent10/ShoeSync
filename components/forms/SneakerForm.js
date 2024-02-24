@@ -58,7 +58,7 @@ function SneakerForm({ obj }) {
         <Form.Control
           type="text"
           placeholder="Enter Shoe Name"
-          name="name"
+          name="shoe_name"
           value={formInput.shoe_name}
           onChange={handleChange}
           required
@@ -69,7 +69,7 @@ function SneakerForm({ obj }) {
         <Form.Control
           type="text"
           placeholder="Enter Original release date"
-          name="date"
+          name="orignal release date"
           value={formInput.orignal_release_date}
           onChange={handleChange}
           required
