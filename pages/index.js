@@ -2,15 +2,13 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Button } from 'react-bootstrap';
 import { getSneakers } from '../api/shoeData';
-import { useAuth } from '../utils/context/authContext';
 import SneakerCard from '../components/SneakerCard';
 
 function Home() {
   const [sneakers, setSneakers] = useState([]);
-  const { user } = useAuth();
 
   const getAllTheSneakers = () => {
-    getSneakers(user.uid).then(setSneakers);
+    getSneakers().then(setSneakers);
   };
 
   useEffect(() => {
