@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Card } from 'react-bootstrap';
 import Link from 'next/link';
+import { deleteSingleSneaker } from '../api/shoeData';
 
 function SneakerCard({ sneakerObj, onUpdate }) {
-  const deleteThisSneaker = () => {
+  const deleteDaShoe = () => {
     if (window.confirm(`Delete ${sneakerObj.shoe_name}?`)) {
-      deleteThisSneaker(sneakerObj.firebaseKey).then(() => onUpdate());
+      deleteSingleSneaker(sneakerObj.firebaseKey).then(() => onUpdate());
     }
   };
 
@@ -21,7 +22,7 @@ function SneakerCard({ sneakerObj, onUpdate }) {
         <Link href={`/sneakers/edit/${sneakerObj.firebaseKey}`} passHref>
           <Button variant="info">EDIT</Button>
         </Link>
-        <Button variant="danger" onClick={deleteThisSneaker} className="m-2">
+        <Button variant="danger" onClick={deleteDaShoe} className="m-2">
           DELETE
         </Button>
       </Card.Body>

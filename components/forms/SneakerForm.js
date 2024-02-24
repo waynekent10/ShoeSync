@@ -39,7 +39,7 @@ function SneakerForm({ obj }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (obj.firebaseKey) {
-      updateSneaker(formInput).then(() => router.push(`/sneaker/${obj.firebaseKey}`));
+      updateSneaker(formInput).then(() => router.push(`/sneakers/${obj.firebaseKey}`));
     } else {
       const payload = { ...formInput, uid: user.uid };
       createSneaker(payload).then(({ name }) => {
@@ -70,7 +70,7 @@ function SneakerForm({ obj }) {
           type="url"
           placeholder="Enter Original release date"
           name="image"
-          value={formInput.original_release_date}
+          value={formInput.orignal_release_date}
           onChange={handleChange}
           required
         />
