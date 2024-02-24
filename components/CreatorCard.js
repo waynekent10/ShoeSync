@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Card } from 'react-bootstrap';
 import Link from 'next/link';
+import { deleteSingleCreator } from '../api/creatorData';
 
 function CreatorCard({ creatorObj, onUpdate }) {
   const deleteThisCreator = () => {
     if (window.confirm(`Delete ${creatorObj.name}?`)) {
-      deleteThisCreator(creatorObj.firebaseKey).then(() => onUpdate());
+      deleteSingleCreator(creatorObj.firebaseKey).then(() => onUpdate());
     }
   };
 

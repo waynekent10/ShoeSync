@@ -31,7 +31,7 @@ function CreatorForm({ obj }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (obj.firebaseKey) {
-      updateCreator(formInput).then(() => router.push(`/author/${obj.firebaseKey}`));
+      updateCreator(formInput).then(() => router.push(`/creators/${obj.firebaseKey}`));
     } else {
       const payload = { ...formInput, uid: user.uid };
       createCreator(payload).then(({ name }) => {
