@@ -74,7 +74,7 @@ function CreatorForm({ obj }) {
           type="text"
           placeholder="Enter Company"
           name="company"
-          value={formInput.name}
+          value={formInput.company}
           onChange={handleChange}
           required
         />
