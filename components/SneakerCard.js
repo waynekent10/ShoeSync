@@ -16,10 +16,10 @@ function SneakerCard({ sneakerObj, onUpdate }) {
       <Card.Img variant="top" src={sneakerObj.image} alt={sneakerObj.shoe_name} style={{ height: '400px' }} />
       <Card.Body>
         <Card.Title>{sneakerObj.shoe_name}</Card.Title>
-        <Link href={`/sneakers/${sneakerObj.firebaseKey}`} passHref>
+        <Link href={`/sneaker/${sneakerObj.firebaseKey}`} passHref>
           <Button variant="primary" className="m-2">VIEW</Button>
         </Link>
-        <Link href={`/sneakers/edit/${sneakerObj.firebaseKey}`} passHref>
+        <Link href={`/sneaker/edit/${sneakerObj.firebaseKey}`} passHref>
           <Button variant="info">EDIT</Button>
         </Link>
         <Button variant="danger" onClick={deleteDaShoe} className="m-2">
