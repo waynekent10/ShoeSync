@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
-import { Button } from 'react-bootstrap';
-import { getSneakers } from '../api/shoeData';
 import SneakerCard from '../components/SneakerCard';
+import { getEachSneaker } from '../api/shoeData';
 
 function Home() {
   const [sneakers, setSneakers] = useState([]);
 
   const getAllTheSneakers = () => {
-    getSneakers().then(setSneakers);
+    getEachSneaker().then(setSneakers);
   };
 
   useEffect(() => {
@@ -18,10 +16,7 @@ function Home() {
 
   return (
     <div className="text-center my-4">
-      <Link href="/sneaker/new" passHref>
-        <Button>Add Shoe</Button>
-      </Link>
-      <div>
+      <div className="d-flex flex-wrap">
         {sneakers.map((sneaker) => (
           <SneakerCard key={sneaker.firebaseKey} sneakerObj={sneaker} onUpdate={getAllTheSneakers} />
         ))}
