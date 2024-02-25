@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { getSneakers } from '../api/shoeData';
 import SneakerCard from '../components/SneakerCard';
+import { getEachSneaker } from '../api/shoeData';
 
 function Home() {
   const [sneakers, setSneakers] = useState([]);
 
   const getAllTheSneakers = () => {
-    getSneakers().then(setSneakers);
+    getEachSneaker().then(setSneakers);
   };
 
   useEffect(() => {

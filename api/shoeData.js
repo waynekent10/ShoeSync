@@ -96,6 +96,23 @@ const favoriteKicks = (uid) => new Promise((resolve, reject) => {
     })
     .catch(reject);
 });
+const getEachSneaker = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/sneakers.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        resolve(Object.values(data));
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
+});
 
 export {
   getSneakers,
@@ -105,4 +122,5 @@ export {
   updateSneaker,
   getShoesByCreator,
   favoriteKicks,
+  getEachSneaker,
 };
