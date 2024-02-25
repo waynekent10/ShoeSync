@@ -22,7 +22,7 @@ export default function MyCollection() {
       <Head>
         <title>My Collection</title>
       </Head>
-      <header><h1>Team</h1></header>
+      <header><h1>My Collection</h1></header>
       <div className="text-center my-4">
         <Link href="/sneaker/new" passHref>
           <Button>Add Shoe</Button>
