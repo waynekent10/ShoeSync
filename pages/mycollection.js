@@ -7,21 +7,23 @@ import { favoriteKicks, getSneakers } from '../api/shoeData';
 import SneakerCard from '../components/SneakerCard';
 
 export default function MyCollection() {
+  const [favorites, setFavorites] = useState([]);
   const [sneakers, setSneakers] = useState([]);
   const { user } = useAuth();
+
+  const getFavoriteSneakers = () => {
+    favoriteKicks(user.uid).then(setFavorites);
+  };
 
   const getAllTheSneakers = () => {
     getSneakers(user.uid).then(setSneakers);
   };
-  const getFavoriteSneakers = () => {
-    favoriteKicks(user.uid).then((favorites) => {
-      setSneakers(favorites);
-    });
-  };
+
   useEffect(() => {
-    getAllTheSneakers();
+    getFavoriteSneakers(user.uid);
+    getAllTheSneakers(user.uid);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [user]);
   return (
     <>
       <Head>
@@ -34,7 +36,7 @@ export default function MyCollection() {
         </Link>
         <section>My Favorites</section>
         <div className="d-flex flex-wrap">
-          {sneakers.map((sneaker) => (
+          {favorites.map((sneaker) => (
             <SneakerCard key={sneaker.firebaseKey} sneakerObj={sneaker} onUpdate={getFavoriteSneakers} />
           ))}
         </div>
