@@ -8,7 +8,7 @@ import { getCreators } from '../../api/creatorData';
 
 const initialState = {
   shoe_name: '',
-  orignal_release_date: '',
+  release_date: '',
   brand: '',
   manufacturer: '',
   image: '',
@@ -65,12 +65,12 @@ function SneakerForm({ obj }) {
         />
       </FloatingLabel>
 
-      <FloatingLabel controlId="floatingInput2" label="Original release date" className="mb-3">
+      <FloatingLabel controlId="floatingInput2" label="releaseDate" className="mb-3">
         <Form.Control
           type="text"
           placeholder="Enter Original release date"
-          name="orignal release date"
-          value={formInput.orignal_release_date}
+          name="release_date"
+          value={formInput.release_date}
           onChange={handleChange}
           required
         />
@@ -167,7 +167,7 @@ function SneakerForm({ obj }) {
 SneakerForm.propTypes = {
   obj: PropTypes.shape({
     shoe_name: PropTypes.string,
-    original_release_date: PropTypes.string,
+    release_date: PropTypes.string,
     image: PropTypes.string,
     manufacturer: PropTypes.string,
     favorite: PropTypes.bool,

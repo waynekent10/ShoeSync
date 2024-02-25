@@ -23,11 +23,11 @@ export default function NavBar() {
             <Link passHref href="/creators">
               <Nav.Link>Creators</Nav.Link>
             </Link>
-            <Link passHref href="/sneakers">
-              <Nav.Link>Sneakers</Nav.Link>
-            </Link>
             <Link passHref href="/mycollection">
               <Nav.Link>My Collection</Nav.Link>
+            </Link>
+            <Link passHref href="/sneaker/new">
+              <Nav.Link>Add Sneaker</Nav.Link>
             </Link>
             <Button variant="danger" onClick={signOut}>Sign Out</Button>
           </Nav>
