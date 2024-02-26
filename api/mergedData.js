@@ -1,16 +1,6 @@
+import { getColorsByShoe } from './colorData';
 import { deleteSingleCreator, getCreatorShoes, getSingleCreator } from './creatorData';
 import { deleteSingleSneaker, getSingleSneaker } from './shoeData';
-
-const deleteCreatorKicks = (creatorId) => new Promise((resolve, reject) => {
-  getCreatorShoes(creatorId).then((sneakersArray) => {
-    console.warn(sneakersArray, 'Creators Kicks');
-    const deleteShoePromises = sneakersArray.map((sneaker) => deleteSingleSneaker(sneaker.firebaseKey));
-
-    Promise.all(deleteShoePromises).then(() => {
-      deleteSingleCreator(creatorId).then(resolve);
-    });
-  }).catch((error) => reject(error));
-});
 
 const viewSneakerDetails = (sneakerFirebaseKey) => new Promise((resolve, reject) => {
   getSingleSneaker(sneakerFirebaseKey)
@@ -29,4 +19,27 @@ const viewCreatorDetails = (creatorFirebaseKey) => new Promise((resolve, reject)
     }).catch((error) => reject(error));
 });
 
-export { deleteCreatorKicks, viewSneakerDetails, viewCreatorDetails };
+const deleteCreatorKicks = (creatorId) => new Promise((resolve, reject) => {
+  getCreatorShoes(creatorId).then((sneakersArray) => {
+    console.warn(sneakersArray, 'Creators Kicks');
+    const deleteShoePromises = sneakersArray.map((sneaker) => deleteSingleSneaker(sneaker.firebaseKey));
+
+    Promise.all(deleteShoePromises).then(() => {
+      deleteSingleCreator(creatorId).then(resolve);
+    });
+  }).catch((error) => reject(error));
+});
+
+const viewSneakerColors = (sneakerFirebaseKey) => new Promise((resolve, reject) => {
+  getSingleSneaker(sneakerFirebaseKey)
+    .then((sneakerObject) => {
+      getColorsByShoe(sneakerObject.shoeId)
+        .then((colorObject) => {
+          resolve({ sneakerObject, ...colorObject });
+        });
+    }).catch((error) => reject(error));
+});
+
+export {
+  deleteCreatorKicks, viewSneakerDetails, viewCreatorDetails, viewSneakerColors,
+};
