@@ -6,8 +6,12 @@ import { deleteSingleSneaker } from '../api/shoeData';
 
 function SneakerCard({ sneakerObj, onUpdate }) {
   const deleteDaShoe = () => {
-    if (window.confirm(`Delete ${sneakerObj.shoe_name}?`)) {
-      deleteSingleSneaker(sneakerObj.firebaseKey).then(() => onUpdate());
+    if (window.confirm(`Do you want to remove from your collection ${sneakerObj.shoe_name}?`)) {
+      deleteSingleSneaker(sneakerObj.firebaseKey).then(() => {
+        if (onUpdate) {
+          onUpdate();
+        }
+      });
     }
   };
 

@@ -116,6 +116,24 @@ const getEachSneaker = () => new Promise((resolve, reject) => {
     })
     .catch(reject);
 });
+const getSneakersWithoutDelete = (uid, deletedFirebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/sneakers.json?orderBy="uid"&equalTo="${uid}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        const sneakers = Object.values(data).filter((sneaker) => sneaker.firebaseKey !== deletedFirebaseKey);
+        resolve(sneakers);
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
+});
 
 export {
   getSneakers,
@@ -126,4 +144,5 @@ export {
   getShoesByCreator,
   favoriteKicks,
   getEachSneaker,
+  getSneakersWithoutDelete,
 };

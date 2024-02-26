@@ -44,7 +44,7 @@ export default function MyCollection() {
         <section>New Arrivals</section>
         <div className="d-flex flex-wrap">
           {sneakers.map((sneaker) => (
-            <SneakerCard key={sneaker.firebaseKey} sneakerObj={sneaker} onUpdate={getAllTheSneakers} />
+            <SneakerCard key={sneaker.firebaseKey} sneakerObj={sneaker} />
           ))}
         </div>
       </div>
