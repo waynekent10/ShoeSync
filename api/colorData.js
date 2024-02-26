@@ -70,6 +70,17 @@ const getColorsByShoe = (firebaseKey) => new Promise((resolve, reject) => {
     .then((data) => resolve(Object.values(data)))
     .catch(reject);
 });
+const getSingleColor = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/sneakers/${firebaseKey}.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
 
 export {
   getColors,
@@ -77,4 +88,5 @@ export {
   updateColor,
   getColorsByShoe,
   createColor,
+  getSingleColor,
 };

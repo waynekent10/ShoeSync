@@ -34,13 +34,13 @@ function ColorForm({ obj }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (obj.firebaseKey) {
-      updateColor(formInput).then(() => router.push(`/color/${obj.firebaseKey}`));
+      updateColor(formInput).then(() => router.push(`/sneaker/${obj.firebaseKey}`));
     } else {
       const payload = { ...formInput, uid: user.uid };
       createColor(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateColor(patchPayload).then(() => {
-          router.push('/');
+          router.push('/sneaker');
         });
       });
     }
@@ -83,7 +83,7 @@ function ColorForm({ obj }) {
         />
       </FloatingLabel>
 
-      <FloatingLabel controlId="floatingSelect" label="Color">
+      <FloatingLabel controlId="floatingSelect" label="Shoe Name">
         <Form.Select
           aria-label="Colorway"
           name="shoeId"
