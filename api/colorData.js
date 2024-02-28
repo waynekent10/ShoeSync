@@ -35,7 +35,7 @@ const createColor = (payload) => new Promise((resolve, reject) => {
 
 const updateColor = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/colors.json`, {
-    method: 'POST',
+    method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
     },
@@ -48,7 +48,7 @@ const updateColor = (payload) => new Promise((resolve, reject) => {
 
 const deleteColor = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/colors.json`, {
-    method: 'POST',
+    method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
     },
@@ -60,7 +60,7 @@ const deleteColor = (payload) => new Promise((resolve, reject) => {
 });
 
 const getColorsByShoe = (firebaseKey) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/colors.json?orderBy="shoeId"&equalTo="${firebaseKey}"`, {
+  fetch(`${endpoint}/sneakers.json?orderBy="shoe_Id"&equalTo="${firebaseKey}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',

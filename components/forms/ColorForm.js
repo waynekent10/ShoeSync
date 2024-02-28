@@ -9,7 +9,7 @@ const initialState = {
   nickname: '',
   primary_color: '',
   secondary_color: '',
-  shoeId: '',
+  shoe_id: '',
 };
 
 function ColorForm({ obj }) {
@@ -83,13 +83,13 @@ function ColorForm({ obj }) {
         />
       </FloatingLabel>
 
-      <FloatingLabel controlId="floatingSelect" label="Shoe Name">
+      <FloatingLabel controlId="floatingSelect" label="Shoe">
         <Form.Select
           aria-label="Colorway"
-          name="shoeId"
+          name="shoe_id"
           onChange={handleChange}
           className="mb-3"
-          value={formInput.shoeId}
+          value={formInput.shoe_id}
           required
         >
           <option value="">Select a Shoe</option>
@@ -111,7 +111,7 @@ ColorForm.propTypes = {
     nickname: PropTypes.string,
     primary_color: PropTypes.string,
     secondary_color: PropTypes.string,
-    shoeId: PropTypes.string,
+    shoe_id: PropTypes.string,
     firebaseKey: PropTypes.string,
   }),
 };
