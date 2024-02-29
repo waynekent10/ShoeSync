@@ -59,17 +59,6 @@ const deleteColor = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const getColorsByShoe = (firebaseKey) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/sneakers.json?orderBy="shoe_Id"&equalTo="${firebaseKey}"`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => resolve(Object.values(data)))
-    .catch(reject);
-});
 const getSingleColor = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/sneakers/${firebaseKey}.json`, {
     method: 'GET',
@@ -81,12 +70,23 @@ const getSingleColor = (firebaseKey) => new Promise((resolve, reject) => {
     .then((data) => resolve(data))
     .catch(reject);
 });
+const getColorsByShoe = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/sneakers.json?orderBy="shoe_Id"&equalTo="${firebaseKey}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
 
 export {
   getColors,
   deleteColor,
   updateColor,
-  getColorsByShoe,
   createColor,
   getSingleColor,
+  getColorsByShoe,
 };
