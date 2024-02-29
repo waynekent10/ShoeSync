@@ -6,7 +6,7 @@ import { deleteColor } from '../../api/colorData';
 
 function ColorwayCard({ colorObj, onUpdate }) {
   const deleteDaColor = () => {
-    if (window.confirm(`Do you want to remove from your collection ${colorObj.nickname}?`)) {
+    if (window.confirm(`Do you want to this colorway from your collection ${colorObj.nickname}?`)) {
       deleteColor(colorObj.firebaseKey).then(() => onUpdate());
     }
   };
@@ -16,10 +16,10 @@ function ColorwayCard({ colorObj, onUpdate }) {
       <Card.Img variant="top" src={colorObj.image} alt={colorObj.nickname} style={{ height: '400px' }} />
       <Card.Body>
         <Card.Title>{colorObj.nickname}</Card.Title>
-        <Link href={`/color/${colorObj.firebaseKey}`} passHref>
+        <Link href={`/sneaker/colorway/${colorObj.firebaseKey}`} passHref>
           <Button variant="primary" className="m-2">VIEW</Button>
         </Link>
-        <Link href={`/color/edit/${colorObj.firebaseKey}`} passHref>
+        <Link href={`/sneaker/colorway/edit/${colorObj.firebaseKey}`} passHref>
           <Button variant="info">EDIT</Button>
         </Link>
         <Button variant="danger" onClick={deleteDaColor} className="m-2">
@@ -36,6 +36,7 @@ ColorwayCard.propTypes = {
     image: PropTypes.string,
     primary_color: PropTypes.string,
     secondary_color: PropTypes.string,
+    shoe_id: PropTypes.string,
     firebaseKey: PropTypes.string,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
