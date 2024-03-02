@@ -1,4 +1,3 @@
-import { getColorsByShoe, getSingleColor } from './colorData';
 import { deleteSingleCreator, getCreatorShoes, getSingleCreator } from './creatorData';
 import { deleteSingleSneaker, getSingleSneaker } from './shoeData';
 
@@ -30,16 +29,16 @@ const deleteCreatorKicks = (creatorId) => new Promise((resolve, reject) => {
   }).catch((error) => reject(error));
 });
 
-const viewSneakerColorway = (sneakerFirebaseKey) => new Promise((resolve, reject) => {
-  getSingleSneaker(sneakerFirebaseKey)
-    .then((sneakerObject) => {
-      getSingleColor(sneakerObject.shoe_id)
-        .then((colorObject) => {
-          resolve({ colorObject, ...sneakerObject });
-        });
-    }).catch((error) => reject(error));
-});
+// const viewColorDetails = (sneakerFirebaseKey) => new Promise((resolve, reject) => {
+//   getSingleSneaker(sneakerFirebaseKey)
+//     .then((sneakerObject) => {
+//       getSingleCreator(sneakerObject.creator_id)
+//         .then((creatorObject) => {
+//           resolve({ creatorObject, ...sneakerObject });
+//         });
+//     }).catch((error) => reject(error));
+// });
 
 export {
-  deleteCreatorKicks, viewSneakerDetails, viewCreatorDetails, viewSneakerColorway,
+  deleteCreatorKicks, viewSneakerDetails, viewCreatorDetails,
 };

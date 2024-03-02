@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { Button, Image } from 'react-bootstrap';
 import Link from 'next/link';
-import { viewSneakerColorway, viewSneakerDetails } from '../../api/mergedData';
+import { viewSneakerDetails } from '../../api/mergedData';
 import SneakerCard from '../../components/SneakerCard';
 
 export default function ViewSneaker() {
@@ -10,8 +10,8 @@ export default function ViewSneaker() {
   const router = useRouter();
   const { firebaseKey } = router.query;
 
-  const viewOtherColors = () => {
-    viewSneakerColorway(firebaseKey).then(setSneakerDetails);
+  const viewCreatedSneakers = () => {
+    viewSneakerDetails(firebaseKey).then(setSneakerDetails);
   };
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export default function ViewSneaker() {
   return (
     <>
       <div className="text-center my-4">
-        <Link href="/color/new" passHref>
+        <Link href="/sneaker/colorway/newcolorway" passHref>
           <Button>Add Coloway</Button>
         </Link>
       </div>
@@ -36,8 +36,8 @@ export default function ViewSneaker() {
           <p>{sneakerDetails.brand}</p>
         </div>
         <div className="d-flex flex-wrap">
-          {sneakerDetails.colors?.map((color) => (
-            <SneakerCard key={color.firebaseKey} colorObj={color} onUpdate={() => viewOtherColors()} />
+          {sneakerDetails.sneakers?.map((sneaker) => (
+            <SneakerCard key={sneaker.firebaseKey} sneakerObj={sneaker} onUpdate={viewCreatedSneakers} />
           ))}
         </div>
       </div>

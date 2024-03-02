@@ -60,7 +60,7 @@ const deleteColor = (payload) => new Promise((resolve, reject) => {
 });
 
 const getSingleColor = (firebaseKey) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/sneakers/${firebaseKey}.json`, {
+  fetch(`${endpoint}/colors/${firebaseKey}.json`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
