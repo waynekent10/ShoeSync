@@ -4,14 +4,24 @@ import Link from 'next/link';
 import {
   Navbar, Container, Nav, Button,
 } from 'react-bootstrap';
+import Image from 'next/image';
 import { signOut } from '../utils/auth';
+import logo from '../public/photos/logo.png';
 
 export default function NavBar() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
         <Link passHref href="/">
-          <Navbar.Brand>Shoe Sync</Navbar.Brand>
+          <Navbar.Brand>
+            <Image
+              src={logo}
+              className="img"
+              width={75}
+              height={75}
+              alt="Sole Sync logo"
+            />
+          </Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
