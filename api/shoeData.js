@@ -116,7 +116,6 @@ const getEachSneaker = () => new Promise((resolve, reject) => {
     })
     .catch(reject);
 });
-
 export {
   getSneakers,
   createSneaker,

@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
-import ColorForm from '../../../components/forms/ColorForm';
-import { getSingleColor } from '../../../api/colorData';
+import { getSingleColor } from '../../../../api/colorData';
+import ColorForm from '../../../../components/forms/ColorForm';
 
-export default function EditSneaker() {
+export default function EditColorway() {
   const [editItem, setEditItem] = useState({});
   const router = useRouter();
   const { firebaseKey } = router.query;
