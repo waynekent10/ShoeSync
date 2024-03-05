@@ -65,7 +65,7 @@ function SneakerForm({ obj }) {
         />
       </FloatingLabel>
 
-      <FloatingLabel controlId="floatingInput2" label="releaseDate" className="mb-3">
+      <FloatingLabel controlId="floatingInput2" label="Release Date" className="mb-3">
         <Form.Control
           type="text"
           placeholder="Enter Original release date"
