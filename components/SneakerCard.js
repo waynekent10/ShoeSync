@@ -6,7 +6,7 @@ import { deleteSingleSneaker } from '../api/shoeData';
 import { useAuth } from '../utils/context/authContext';
 
 function SneakerCard({ sneakerObj, onUpdate }) {
-  const { user } = useAuth(); // Invoke the useAuth function to get the user object
+  const { user } = useAuth();
 
   const deleteDaShoe = () => {
     if (window.confirm(`Delete ${sneakerObj.shoe_name}?`)) {

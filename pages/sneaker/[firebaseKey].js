@@ -21,7 +21,7 @@ export default function ViewSneaker() {
   return (
     <>
       <div className="text-center my-4">
-        <Link href="/sneaker/colorway/newcolorway" passHref>
+        <Link href="/colorway/new" passHref>
           <Button>Add Coloway</Button>
         </Link>
       </div>

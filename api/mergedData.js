@@ -33,6 +33,7 @@ const deleteCreatorKicks = (creatorId) => new Promise((resolve, reject) => {
 const viewColorways = (colorFirebaseKey) => new Promise((resolve, reject) => {
   getColorsByShoe(colorFirebaseKey)
     .then((colorObject) => {
+      console.warn("where are you")
       getSingleSneaker(colorObject.firebaseKey)
         .then((sneakerObject) => {
           resolve({ sneakerObject, ...colorObject });

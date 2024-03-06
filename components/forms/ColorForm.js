@@ -34,13 +34,13 @@ function ColorForm({ obj }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (obj.firebaseKey) {
-      updateColor(formInput).then(() => router.push(`/sneaker/${obj.firebaseKey}`));
+      updateColor(formInput).then(() => router.push(`/colorway/${obj.firebaseKey}`));
     } else {
       const payload = { ...formInput, uid: user.uid };
       createColor(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateColor(patchPayload).then(() => {
-          router.push('/sneaker');
+          router.push('/colorway');
         });
       });
     }
@@ -50,7 +50,7 @@ function ColorForm({ obj }) {
     <Form onSubmit={handleSubmit}>
       <h2 className="text-white mt-5">{obj.firebaseKey ? 'Update' : 'Create'} Colorway</h2>
 
-      <FloatingLabel controlId="floatingInput1" label="Shoe Name" className="mb-3">
+      <FloatingLabel controlId="floatingInput1" label="Nickame" className="mb-3">
         <Form.Control
           type="text"
           placeholder="Enter Nickname"
