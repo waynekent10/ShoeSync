@@ -35,7 +35,7 @@ const viewColorways = (colorFirebaseKey) => new Promise((resolve, reject) => {
     .then((colorObject) => {
       getSingleSneaker(colorObject.firebaseKey)
         .then((sneakerObject) => {
-          resolve({ colorObject, ...sneakerObject });
+          resolve({ sneakerObject, ...colorObject });
         });
     }).catch((error) => reject(error));
 });
