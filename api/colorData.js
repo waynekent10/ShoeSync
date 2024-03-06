@@ -3,7 +3,7 @@ import { clientCredentials } from '../utils/client';
 const endpoint = clientCredentials.databaseURL;
 
 const getColors = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/sneakers.json`, {
+  fetch(`${endpoint}/colors.json`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -21,7 +21,7 @@ const getColors = () => new Promise((resolve, reject) => {
 });
 
 const createColor = (payload) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/sneakers.json`, {
+  fetch(`${endpoint}/colors.json`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
