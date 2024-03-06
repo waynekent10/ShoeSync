@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Card } from 'react-bootstrap';
 import Link from 'next/link';
-import { deleteColor } from '../api/colorData';
+import { deleteAColor } from '../api/colorData';
 
 function ColorwayCard({ colorObj, onUpdate }) {
   const deleteDaColor = () => {
     if (window.confirm(`Do you want to this colorway from your collection ${colorObj.nickname}?`)) {
-      deleteColor(colorObj.firebaseKey).then(() => onUpdate());
+      deleteAColor(colorObj.firebaseKey).then(() => onUpdate());
     }
   };
 
