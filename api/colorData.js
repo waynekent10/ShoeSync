@@ -2,8 +2,8 @@ import { clientCredentials } from '../utils/client';
 
 const endpoint = clientCredentials.databaseURL;
 
-const getColors = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/colors.json`, {
+const getColors = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/colors.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -46,13 +46,12 @@ const updateColor = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const deleteColor = (payload) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/colors.json`, {
+const deleteAColor = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/colors/${firebaseKey}.json`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(payload),
   })
     .then((response) => response.json())
     .then((data) => resolve(data))
@@ -84,7 +83,7 @@ const getColorsByShoe = (firebaseKey) => new Promise((resolve, reject) => {
 
 export {
   getColors,
-  deleteColor,
+  deleteAColor,
   updateColor,
   createColor,
   getSingleColor,

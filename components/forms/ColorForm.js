@@ -7,6 +7,7 @@ import { createColor, getColors, updateColor } from '../../api/colorData';
 
 const initialState = {
   nickname: '',
+  image: '',
   primary_color: '',
   secondary_color: '',
   shoe_id: '',
@@ -72,6 +73,17 @@ function ColorForm({ obj }) {
         />
       </FloatingLabel>
 
+      <FloatingLabel controlId="floatingInput2" label="Shoe Image" className="mb-3">
+        <Form.Control
+          type="url"
+          placeholder="Enter an image url"
+          name="image"
+          value={formInput.image}
+          onChange={handleChange}
+          required
+        />
+      </FloatingLabel>
+
       <FloatingLabel controlId="floatingInput3" label="Secondary Color" className="mb-3">
         <Form.Control
           type="text"
@@ -109,6 +121,7 @@ function ColorForm({ obj }) {
 ColorForm.propTypes = {
   obj: PropTypes.shape({
     nickname: PropTypes.string,
+    image: PropTypes.string,
     primary_color: PropTypes.string,
     secondary_color: PropTypes.string,
     shoe_id: PropTypes.string,
