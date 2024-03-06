@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '../utils/context/authContext';
 import { getSneakers } from '../api/shoeData';
-import ColorwayCard from '../components/forms/ColorCard';
+import ColorwayCard from '../components/ColorCard';
 
 export default function Colorway() {
   const [colors, setColors] = useState([]);

@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import ColorwayCard from '../../components/forms/ColorCard';
+import ColorwayCard from '../../components/ColorCard';
 import { viewColorways } from '../../api/mergedData';
 
 export default function ViewColorway() {

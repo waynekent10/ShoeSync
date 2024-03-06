@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Card } from 'react-bootstrap';
 import Link from 'next/link';
-import { deleteColor } from '../../api/colorData';
+import { deleteColor } from '../api/colorData';
 
 function ColorwayCard({ colorObj, onUpdate }) {
   const deleteDaColor = () => {
@@ -16,10 +16,10 @@ function ColorwayCard({ colorObj, onUpdate }) {
       <Card.Img variant="top" src={colorObj.image} alt={colorObj.nickname} style={{ height: '400px' }} />
       <Card.Body>
         <Card.Title>{colorObj.nickname}</Card.Title>
-        <Link href={`/sneaker/colorway/${colorObj.firebaseKey}`} passHref>
+        <Link href={`/colorway/${colorObj.firebaseKey}`} passHref>
           <Button variant="primary" className="m-2">VIEW</Button>
         </Link>
-        <Link href={`/sneaker/colorway/edit/${colorObj.firebaseKey}`} passHref>
+        <Link href={`/colorway/edit/${colorObj.firebaseKey}`} passHref>
           <Button variant="info">EDIT</Button>
         </Link>
         <Button variant="danger" onClick={deleteDaColor} className="m-2">
