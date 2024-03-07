@@ -32,7 +32,7 @@ export default function ViewSneaker() {
         </div>
         <div className="text-white ms-5 details">
           <h5>{sneakerDetails.shoe_name}</h5>
-          <p>{sneakerDetails.original_release_date}</p>
+          <p>{sneakerDetails.release_date}</p>
           <p>{sneakerDetails.brand}</p>
         </div>
         <div className="d-flex flex-wrap">

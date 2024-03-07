@@ -35,13 +35,13 @@ function ColorForm({ obj }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (obj.firebaseKey) {
-      updateColor(formInput).then(() => router.push(`/colorway/${obj.firebaseKey}`));
+      updateColor(formInput).then(() => router.push(`/${obj.firebaseKey}`));
     } else {
       const payload = { ...formInput, uid: user.uid };
       createColor(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateColor(patchPayload).then(() => {
-          router.push('/colorway');
+          router.push('/');
         });
       });
     }

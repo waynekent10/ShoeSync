@@ -1,8 +1,8 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import ColorwayCard from '../../components/ColorCard';
 import { viewColorways } from '../../api/mergedData';
+import ColorwayCard from '../../components/ColorCard';
 
 export default function ViewColorway() {
   const [colorDetails, setColorDetails] = useState({});
