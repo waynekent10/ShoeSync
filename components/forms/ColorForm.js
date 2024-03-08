@@ -4,14 +4,13 @@ import PropTypes from 'prop-types';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
 import { createColor, updateColor } from '../../api/colorData';
-import { getShoesByColor } from '../../api/shoeData';
+import { getEachSneaker } from '../../api/shoeData';
 
 const initialState = {
   nickname: '',
   image: '',
   primary_color: '',
   secondary_color: '',
-  uid: '',
 };
 
 function ColorForm({ obj }) {
@@ -21,7 +20,7 @@ function ColorForm({ obj }) {
   const { user } = useAuth();
 
   useEffect(() => {
-    getShoesByColor().then(setSneakers);
+    getEachSneaker().then(setSneakers);
 
     if (obj.firebaseKey) setFormInput(obj);
   }, [obj, user]);
@@ -97,13 +96,13 @@ function ColorForm({ obj }) {
         />
       </FloatingLabel>
 
-      <FloatingLabel controlId="floatingSelect" label="Select a shoe">
+      <FloatingLabel controlId="floatingSelect" label="Shoe">
         <Form.Select
           aria-label="Colorway"
           name="shoe_id"
           onChange={handleChange}
           className="mb-3"
-          value={formInput.shoe_id || ''}
+          value={formInput.shoe_id}
           required
         >
           <option value="">Select a Shoe</option>
