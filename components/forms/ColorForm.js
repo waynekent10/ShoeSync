@@ -20,7 +20,7 @@ function ColorForm({ obj }) {
   const { user } = useAuth();
 
   useEffect(() => {
-    getColorsByShoe().then(setSneakers);
+    getColorsByShoe(obj.firebaseKey).then(setSneakers);
 
     if (obj.firebaseKey) setFormInput(obj);
   }, [obj, user]);
@@ -36,7 +36,7 @@ function ColorForm({ obj }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (obj.firebaseKey) {
-      updateColor(formInput).then(() => router.push(`/colorway${obj.firebaseKey}`));
+      updateColor(formInput).then(() => router.push(`/colorway/${obj.firebaseKey}`));
     } else {
       const payload = { ...formInput, uid: user.uid };
       createColor(payload).then(({ name }) => {
@@ -96,13 +96,13 @@ function ColorForm({ obj }) {
         />
       </FloatingLabel>
 
-      <FloatingLabel controlId="floatingSelect" label="Shoe">
+      <FloatingLabel controlId="floatingSelect" label="Select a shoe">
         <Form.Select
           aria-label="Colorway"
           name="shoe_id"
           onChange={handleChange}
           className="mb-3"
-          value={formInput.shoe_id}
+          value={formInput.shoe_id || ''}
           required
         >
           <option value="">Select a Shoe</option>
