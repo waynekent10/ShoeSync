@@ -10,7 +10,6 @@ const initialState = {
   image: '',
   primary_color: '',
   secondary_color: '',
-  shoe_id: '',
 };
 
 function ColorForm({ obj }) {
@@ -107,7 +106,7 @@ function ColorForm({ obj }) {
           <option value="">Select a Shoe</option>
           {sneakers.map((sneaker) => (
             <option key={sneaker.firebaseKey} value={sneaker.firebaseKey}>
-              {sneaker.shoe_name}
+              {sneaker.shoe_id}
             </option>
           ))}
         </Form.Select>
@@ -124,7 +123,6 @@ ColorForm.propTypes = {
     image: PropTypes.string,
     primary_color: PropTypes.string,
     secondary_color: PropTypes.string,
-    shoe_id: PropTypes.string,
     firebaseKey: PropTypes.string,
   }),
 };

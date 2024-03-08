@@ -36,7 +36,6 @@ ColorwayCard.propTypes = {
     image: PropTypes.string,
     primary_color: PropTypes.string,
     secondary_color: PropTypes.string,
-    shoe_id: PropTypes.string,
     firebaseKey: PropTypes.string,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,

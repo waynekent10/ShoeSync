@@ -70,7 +70,7 @@ const getSingleColor = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 const getColorsByShoe = (firebaseKey) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/colors.json?orderBy="shoe_Id"&equalTo="${firebaseKey}"`, {
+  fetch(`${endpoint}/sneakers.json?orderBy="shoe_Id"&equalTo="${firebaseKey}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',

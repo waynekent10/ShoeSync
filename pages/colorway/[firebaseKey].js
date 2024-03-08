@@ -1,10 +1,11 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
+import { Button, Image } from 'react-bootstrap';
+import Link from 'next/link';
 import { viewColorways } from '../../api/mergedData';
-import ColorwayCard from '../../components/ColorCard';
+import SneakerCard from '../../components/SneakerCard';
 
-export default function ViewColorway() {
+export default function ViewSneaker() {
   const [colorDetails, setColorDetails] = useState({});
   const router = useRouter();
   const { firebaseKey } = router.query;
@@ -12,16 +13,21 @@ export default function ViewColorway() {
   const viewCreatedSneakers = () => {
     viewColorways(firebaseKey).then(setColorDetails);
   };
-
   useEffect(() => {
     viewColorways(firebaseKey).then(setColorDetails);
   }, [firebaseKey]);
 
   return (
     <>
+      <div className="text-center my-4">
+        <Link href="/colorway/new" passHref>
+          <Button>Add Coloway</Button>
+        </Link>
+      </div>
+
       <div className="mt-5 d-flex flex-wrap">
         <div className="d-flex flex-column">
-          <Image src={colorDetails.image} alt={colorDetails.nickname} style={{ width: '300px' }} />
+          <Image src={colorDetails.image} alt={colorDetails.shoe_name} style={{ width: '300px' }} />
         </div>
         <div className="text-white ms-5 details">
           <h5>{colorDetails.nickname}</h5>
@@ -29,8 +35,8 @@ export default function ViewColorway() {
           <p>{colorDetails.secondary_color}</p>
         </div>
         <div className="d-flex flex-wrap">
-          {colorDetails.colors?.map((color) => (
-            <ColorwayCard key={color.firebaseKey} colorObj={color} onUpdate={viewCreatedSneakers} />
+          {colorDetails.sneakers?.map((sneaker) => (
+            <SneakerCard key={sneaker.firebaseKey} sneakerObj={sneaker} onUpdate={viewCreatedSneakers} />
           ))}
         </div>
       </div>

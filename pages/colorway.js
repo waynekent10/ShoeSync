@@ -1,22 +1,29 @@
 import React, { useEffect, useState } from 'react';
+import Head from 'next/head';
 import { useAuth } from '../utils/context/authContext';
-import { getSneakers } from '../api/shoeData';
 import ColorwayCard from '../components/ColorCard';
+import { getColors } from '../api/colorData';
 
 export default function Colorway() {
   const [colors, setColors] = useState([]);
   const { user } = useAuth();
 
   const getAllColorways = () => {
-    getSneakers(user.uid).then(setColors);
+    getColors().then(setColors);
   };
   useEffect(() => {
-    getAllColorways();
+    getColors();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   return (
     <>
+      <Head>
+        <title>Creator</title>
+      </Head>
+      <header>
+        <h1>The colorways </h1>
+      </header>
       <div className="d-flex flex-wrap">
         {colors.map((color) => (
           <ColorwayCard key={color.firebaseKey} colorObj={color} onUpdate={getAllColorways} />
