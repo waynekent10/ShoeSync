@@ -138,4 +138,5 @@ export {
   getShoesByCreator,
   favoriteKicks,
   getEachSneaker,
+  getShoesByColor,
 };
