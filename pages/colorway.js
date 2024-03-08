@@ -9,7 +9,7 @@ export default function Colorway() {
   const { user } = useAuth();
 
   const getAllColorways = () => {
-    getColors().then(setColors);
+    getColors(user.uid).then(setColors);
   };
   useEffect(() => {
     getColors();

@@ -107,8 +107,11 @@ function ColorForm({ obj }) {
         >
           <option value="">Select a Shoe</option>
           {sneakers.map((sneaker) => (
-            <option key={sneaker.firebaseKey} value={sneaker.firebaseKey}>
-              {sneaker.shoe_id}
+            <option
+              key={sneaker.firebaseKey}
+              value={sneaker.firebaseKey}
+            >
+              {sneaker.shoe_name}
             </option>
           ))}
         </Form.Select>
