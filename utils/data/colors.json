@@ -4,31 +4,27 @@
     "image": "",
     "primary_color": "black",
     "secondary_color": "red",
-    "firebaseKey": "-NrmYy9lc59a44NQoZvd",
-    "shoe_id": "-NqsPgF2EN8FXXRzerrE"
+    "firebaseKey": "-NrmYy9lc59a44NQoZvd"
   },
   "-NrmYy9m1M_0IPLdmHBH": {
     "nickname": "Olympics",
     "image": "",
     "primary_color": "blue",
     "secondary_color": "white",
-    "firebaseKey": "-NrmYy9m1M_0IPLdmHBH",
-    "shoe_id": "-NqsPgF3vYyrQ3o_lM3m"
+    "firebaseKey": "-NrmYy9m1M_0IPLdmHBH"
   },
   "-NrmYy9m1M_0IPLdmHBI": {
     "nickname": "The Galaxys",
     "image": "",
     "primary_color": "obsidian",
     "secondary_color": "black",
-    "firebaseKey": "-NrmYy9m1M_0IPLdmHBI",
-    "shoe_id": "-NqsPgF3vYyrQ3o_lM3n"
+    "firebaseKey": "-NrmYy9m1M_0IPLdmHBI"
   },
   "-NrmYy9nsoVx7C8-q3Zt": {
     "nickname": "What the",
     "image": "",
     "primary_color": "multi-color",
     "secondary_color": "reflective silver",
-    "firebaseKey": "-NrmYy9nsoVx7C8-q3Zt",
-    "shoe_id": "-NqsPgF4qUnIvi34SVHP"
+    "firebaseKey": "-NrmYy9nsoVx7C8-q3Zt"
   }
 }

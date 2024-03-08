@@ -18,5 +18,11 @@ a {
 }
 
 body {
-  background-color: #88effd;
+  background-image: url("../public/photos/logo.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: #ffffff;
+  width: '100vw';
+  height: '100vh';
 }

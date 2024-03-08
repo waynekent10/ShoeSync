@@ -14,6 +14,7 @@ const initialState = {
   image: '',
   favorite: '',
   nickname: '',
+  shoe_id: '',
   uid: '',
 };
 
@@ -65,7 +66,7 @@ function SneakerForm({ obj }) {
         />
       </FloatingLabel>
 
-      <FloatingLabel controlId="floatingInput2" label="releaseDate" className="mb-3">
+      <FloatingLabel controlId="floatingInput2" label="Release Date" className="mb-3">
         <Form.Control
           type="text"
           placeholder="Enter Original release date"
@@ -104,17 +105,6 @@ function SneakerForm({ obj }) {
           placeholder="Brand"
           name="brand"
           value={formInput.brand}
-          onChange={handleChange}
-          required
-        />
-      </FloatingLabel>
-
-      <FloatingLabel controlId="floatingTextarea" label="Nickname" className="mb-3">
-        <Form.Control
-          as="textarea"
-          placeholder="Nickname"
-          name="nickname"
-          value={formInput.nickname}
           onChange={handleChange}
           required
         />
@@ -173,6 +163,7 @@ SneakerForm.propTypes = {
     favorite: PropTypes.bool,
     nickname: PropTypes.string,
     firebaseKey: PropTypes.string,
+    shoe_id: PropTypes.string,
   }),
 };
 
