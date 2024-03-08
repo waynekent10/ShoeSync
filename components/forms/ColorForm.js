@@ -3,14 +3,14 @@ import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
-import { createColor, updateColor } from '../../api/colorData';
-import { getEachSneaker } from '../../api/shoeData';
+import { createColor, getColorsByShoe, updateColor } from '../../api/colorData';
 
 const initialState = {
   nickname: '',
   image: '',
   primary_color: '',
   secondary_color: '',
+  uid: '',
 };
 
 function ColorForm({ obj }) {
@@ -20,7 +20,7 @@ function ColorForm({ obj }) {
   const { user } = useAuth();
 
   useEffect(() => {
-    getEachSneaker().then(setSneakers);
+    getColorsByShoe().then(setSneakers);
 
     if (obj.firebaseKey) setFormInput(obj);
   }, [obj, user]);

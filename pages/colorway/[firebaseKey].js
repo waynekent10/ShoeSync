@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { Button, Image } from 'react-bootstrap';
 import Link from 'next/link';
-import { viewColorwayDetails } from '../../api/mergedData';
+import { viewColorways } from '../../api/mergedData';
 import ColorwayCard from '../../components/ColorCard';
 
 export default function ViewSneaker() {
@@ -11,10 +11,10 @@ export default function ViewSneaker() {
   const { firebaseKey } = router.query;
 
   const viewCreatedSneakers = () => {
-    viewColorwayDetails(firebaseKey).then(setColorDetails);
+    viewColorways(firebaseKey).then(setColorDetails);
   };
   useEffect(() => {
-    viewColorwayDetails(firebaseKey).then(setColorDetails);
+    viewColorways(firebaseKey).then(setColorDetails);
   }, [firebaseKey]);
 
   return (
