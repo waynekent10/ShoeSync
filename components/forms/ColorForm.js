@@ -3,7 +3,8 @@ import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
-import { createColor, getColors, updateColor } from '../../api/colorData';
+import { createColor, updateColor } from '../../api/colorData';
+import { getEachSneaker } from '../../api/shoeData';
 
 const initialState = {
   nickname: '',
@@ -19,7 +20,8 @@ function ColorForm({ obj }) {
   const { user } = useAuth();
 
   useEffect(() => {
-    getColors(user.uid).then(setSneakers);
+    getEachSneaker().then(setSneakers);
+
     if (obj.firebaseKey) setFormInput(obj);
   }, [obj, user]);
 
@@ -34,13 +36,13 @@ function ColorForm({ obj }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (obj.firebaseKey) {
-      updateColor(formInput).then(() => router.push(`/${obj.firebaseKey}`));
+      updateColor(formInput).then(() => router.push(`/colorway${obj.firebaseKey}`));
     } else {
       const payload = { ...formInput, uid: user.uid };
       createColor(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateColor(patchPayload).then(() => {
-          router.push('/');
+          router.push('/colorway');
         });
       });
     }

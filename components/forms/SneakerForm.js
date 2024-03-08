@@ -14,19 +14,18 @@ const initialState = {
   image: '',
   favorite: '',
   nickname: '',
+  shoe_id: '',
   uid: '',
 };
 
 function SneakerForm({ obj }) {
   const [formInput, setFormInput] = useState(initialState);
   const [creators, setCreators] = useState([]);
-  const [shoeExists, setShoeExists] = useState(!!obj.firebaseKey);
   const router = useRouter();
   const { user } = useAuth();
 
   useEffect(() => {
     getCreators(user.uid).then(setCreators);
-    setShoeExists(!!obj.firebaseKey);
 
     if (obj.firebaseKey) setFormInput(obj);
   }, [obj, user]);
@@ -111,17 +110,6 @@ function SneakerForm({ obj }) {
         />
       </FloatingLabel>
 
-      <FloatingLabel controlId="floatingTextarea" label="Nickname" className="mb-3">
-        <Form.Control
-          as="textarea"
-          placeholder="Nickname"
-          name="nickname"
-          value={formInput.nickname}
-          onChange={handleChange}
-          required
-        />
-      </FloatingLabel>
-
       <FloatingLabel controlId="floatingSelect" label="Creator">
         <Form.Select
           aria-label="Creator"
@@ -145,18 +133,6 @@ function SneakerForm({ obj }) {
         </Form.Select>
       </FloatingLabel>
 
-      {!shoeExists && (
-        <FloatingLabel controlId="floatingTextarea" label="Nickname" className="mb-3">
-          <Form.Control
-            as="textarea"
-            placeholder="Nickname"
-            name="nickname"
-            value={formInput.nickname}
-            onChange={handleChange}
-            required
-          />
-        </FloatingLabel>
-      )}
       <Form.Check
         className="text-white mb-3"
         type="switch"
