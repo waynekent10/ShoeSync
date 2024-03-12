@@ -43,11 +43,12 @@ function SneakerCard({ sneakerObj, onUpdate }) {
 SneakerCard.propTypes = {
   sneakerObj: PropTypes.shape({
     shoe_name: PropTypes.string,
-    original_release_year: PropTypes.string,
+    release_year: PropTypes.string,
     image: PropTypes.string,
     manufacturer: PropTypes.string,
     favorite: PropTypes.bool,
     nickname: PropTypes.string,
+    shoe_id: PropTypes.string,
     firebaseKey: PropTypes.string,
     uid: PropTypes.string,
   }).isRequired,

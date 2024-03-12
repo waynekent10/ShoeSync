@@ -39,8 +39,8 @@ export default function NavBar() {
             <Link passHref href="/sneaker/new">
               <Nav.Link>Add Sneaker</Nav.Link>
             </Link>
-            <Link passHref href="/company">
-              <Nav.Link>Companies</Nav.Link>
+            <Link passHref href="/brand">
+              <Nav.Link>Brands</Nav.Link>
             </Link>
             <Button variant="danger" onClick={signOut}>Sign Out</Button>
           </Nav>
