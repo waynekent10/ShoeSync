@@ -1,0 +1,23 @@
+{
+    "-NsklKQVC9PH9PMOKtsW": {
+      "name": "Nike",
+      "image": null,
+      "bio": null,
+      "favorite": true,
+      "firebaseKey": "-NsklKQVC9PH9PMOKtsW"
+    },
+    "-NsklKQWemDx0RTMG-y7": {
+      "name": "Addidas",
+      "image": null,
+      "bio": null,
+      "favorite": false,
+      "firebaseKey": "-NsklKQWemDx0RTMG-y7"
+    },
+    "-NsklKQXvx1CqK08gyi2": {
+      "name": "Jordan",
+      "image": null,
+      "bio": null,
+      "favorite": true,
+      "firebaseKey":"-NsklKQXvx1CqK08gyi2"
+    }
+  }
