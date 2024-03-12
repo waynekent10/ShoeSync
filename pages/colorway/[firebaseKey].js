@@ -2,8 +2,9 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { Button, Image } from 'react-bootstrap';
 import Link from 'next/link';
-import { viewColorways } from '../../api/mergedData';
+
 import ColorwayCard from '../../components/ColorCard';
+import { getColors } from '../../api/colorData';
 
 export default function ViewSneaker() {
   const [colorDetails, setColorDetails] = useState({});
@@ -11,10 +12,10 @@ export default function ViewSneaker() {
   const { firebaseKey } = router.query;
 
   const viewCreatedSneakers = () => {
-    viewColorways(firebaseKey).then(setColorDetails);
+    getColors(firebaseKey).then(setColorDetails);
   };
   useEffect(() => {
-    viewColorways(firebaseKey).then(setColorDetails);
+    getColors(firebaseKey).then(setColorDetails);
   }, [firebaseKey]);
 
   return (
@@ -27,7 +28,7 @@ export default function ViewSneaker() {
 
       <div className="mt-5 d-flex flex-wrap">
         <div className="d-flex flex-column">
-          <Image src={colorDetails.image} alt={colorDetails.shoe_name} style={{ width: '300px' }} />
+          <Image src={colorDetails.image} alt={colorDetails.nickname} style={{ width: '300px' }} />
         </div>
         <div className="text-white ms-5 details">
           <h5>{colorDetails.nickname}</h5>
