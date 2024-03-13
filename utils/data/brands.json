@@ -1,20 +1,24 @@
 {
-    "-NstDciDlSuO7OaM-4A7": {
+    "-NstEvBwV824BH_6vQem": {
       "name": "Nike",
       "image": null,
       "bio": null,
-      "firebaseKey": "-NstDciDlSuO7OaM-4A7"
+      "favorite": true,
+      "firebaseKey": "-NstEvBwV824BH_6vQem"
     },
-    "-NstDciEeCCZuqWjK9Qz": {
+    "-NstEvBxKiJO9IMJoK8m": {
       "name": "Jordan",
       "image": null,
       "bio": null,
-      "firebaseKey": "-NstDciEeCCZuqWjK9Qz"
+      "favorite": true,
+      "firebaseKey": "-NstEvBxKiJO9IMJoK8m"
     },
-    "-NstDciEeCCZuqWjK9R-": {
+    "-NstEvBysQ6HFPlZVUOv": {
       "name": "Addidas",
       "image": null,
       "bio": null,
-      "firebaseKey": "-NstDciEeCCZuqWjK9R-"
+      "favorite": false,
+      "firebaseKey": "-NstEvBysQ6HFPlZVUOv"
     }
   }
+  
