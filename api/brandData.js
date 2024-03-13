@@ -3,7 +3,7 @@ import { clientCredentials } from '../utils/client';
 const endpoint = clientCredentials.databaseURL;
 
 const getBrands = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/brand.json`, {
+  fetch(`${endpoint}/brands.json`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -21,7 +21,7 @@ const getBrands = () => new Promise((resolve, reject) => {
 });
 
 const createBrand = (payload) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/brand.json`, {
+  fetch(`${endpoint}/brands.json`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ const createBrand = (payload) => new Promise((resolve, reject) => {
 });
 
 const getSingleBrand = (firebaseKey) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/brand/${firebaseKey}.json`, {
+  fetch(`${endpoint}/brands/${firebaseKey}.json`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ const deleteSingleBrand = (firebaseKey) => new Promise((resolve, reject) => {
 });
 
 const updateBrand = (payload) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/brand/${payload.firebaseKey}.json`, {
+  fetch(`${endpoint}/brands/${payload.firebaseKey}.json`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ const updateBrand = (payload) => new Promise((resolve, reject) => {
 });
 
 const favoriteBrand = (uid) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/brand.json?orderBy="uid"&equalTo="${uid}"`, {
+  fetch(`${endpoint}/brands.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
