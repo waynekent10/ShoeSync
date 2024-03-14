@@ -30,7 +30,7 @@ export default function Brand() {
       </div>
       <div className="d-flex flex-wrap">
         {brands.map((brand) => (
-          <BrandCard key={brand.firebaseKey} creatorObj={brand} onUpdate={getAllBrands} />
+          <BrandCard key={brand.firebaseKey} brandObj={brand} onUpdate={getAllBrands} />
         ))}
       </div>
     </>
