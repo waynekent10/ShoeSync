@@ -3,8 +3,7 @@ import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
-import { createColor, updateColor } from '../../api/colorData';
-import { getEachSneaker } from '../../api/shoeData';
+import { createColor, getColors, updateColor } from '../../api/colorData';
 
 const initialState = {
   nickname: '',
@@ -20,8 +19,7 @@ function ColorForm({ obj }) {
   const { user } = useAuth();
 
   useEffect(() => {
-    getEachSneaker().then(setSneakers);
-
+    getColors().then(setSneakers);
     if (obj.firebaseKey) setFormInput(obj);
   }, [obj, user]);
 
@@ -80,6 +78,17 @@ function ColorForm({ obj }) {
           placeholder="Enter an image url"
           name="image"
           value={formInput.image}
+          onChange={handleChange}
+          required
+        />
+      </FloatingLabel>
+
+      <FloatingLabel controlId="floatingInput2" label="Primary Color" className="mb-3">
+        <Form.Control
+          type="text"
+          placeholder="Primary Color"
+          name="primary_color"
+          value={formInput.primary_color}
           onChange={handleChange}
           required
         />

@@ -2,20 +2,20 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { Button, Image } from 'react-bootstrap';
 import Link from 'next/link';
-
 import ColorwayCard from '../../components/ColorCard';
-import { getColors } from '../../api/colorData';
+import { viewColorDetails } from '../../api/mergedData';
 
-export default function ViewSneaker() {
+export default function ViewColorway() {
   const [colorDetails, setColorDetails] = useState({});
   const router = useRouter();
+
   const { firebaseKey } = router.query;
 
-  const viewCreatedSneakers = () => {
-    getColors(firebaseKey).then(setColorDetails);
+  const viewColorways = () => {
+    viewColorDetails(firebaseKey).then(setColorDetails);
   };
   useEffect(() => {
-    getColors(firebaseKey).then(setColorDetails);
+    viewColorDetails(firebaseKey).then(setColorDetails);
   }, [firebaseKey]);
 
   return (
@@ -37,7 +37,7 @@ export default function ViewSneaker() {
         </div>
         <div className="d-flex flex-wrap">
           {colorDetails.sneakers?.map((color) => (
-            <ColorwayCard key={color.firebaseKey} colorObj={color} onUpdate={viewCreatedSneakers} />
+            <ColorwayCard key={color.firebaseKey} colorObj={color} onUpdate={viewColorways} />
           ))}
         </div>
       </div>

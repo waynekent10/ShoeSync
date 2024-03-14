@@ -9,6 +9,7 @@ export default function ViewCreator() {
   const router = useRouter();
 
   const { firebaseKey } = router.query;
+
   const viewCreatorShoes = () => {
     viewCreatorDetails(firebaseKey).then(setCreatorDetails);
   };
