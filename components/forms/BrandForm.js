@@ -31,13 +31,13 @@ function BrandForm({ obj }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (obj.firebaseKey) {
-      updateBrand(formInput).then(() => router.push(`/brand/${obj.firebaseKey}`));
+      updateBrand(formInput).then(() => router.push(`/brands/${obj.firebaseKey}`));
     } else {
       const payload = { ...formInput, uid: user.uid };
       createBrand(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateBrand(patchPayload).then(() => {
-          router.push('/brand');
+          router.push('/brands');
         });
       });
     }
