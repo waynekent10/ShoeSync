@@ -112,7 +112,7 @@ function ColorForm({ obj }) {
           name="shoe_id"
           onChange={handleChange}
           className="mb-3"
-          value={formInput.shoe_id}
+          value={formInput.firebaseKey}
           required
         >
           <option value="">Select a Shoe</option>

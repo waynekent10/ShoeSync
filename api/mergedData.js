@@ -44,7 +44,7 @@ const deleteCreatorKicks = (creatorId) => new Promise((resolve, reject) => {
 const viewColorDetails = (colorFirebaseKey) => new Promise((resolve, reject) => {
   Promise.all([getSingleColor(colorFirebaseKey), getColorsByShoe(colorFirebaseKey)])
     .then(([colorObject, colorShoesArray]) => {
-      resolve({ ...colorObject, sneakers: colorShoesArray });
+      resolve({ ...colorObject, sneaker: colorShoesArray });
     }).catch((error) => reject(error));
 });
 const viewBrandDetails = (brandFirebaseKey) => new Promise((resolve, reject) => {
