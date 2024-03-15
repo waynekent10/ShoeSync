@@ -1,4 +1,5 @@
 import { clientCredentials } from '../utils/client';
+import { createColor } from './colorData';
 
 const endpoint = clientCredentials.databaseURL;
 
@@ -21,16 +22,25 @@ const getSneakers = (uid) => new Promise((resolve, reject) => {
 });
 
 const createSneaker = (payload) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/sneakers.json`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(payload),
-  })
+  // Check if the shoe name exists
+  fetch(`${endpoint}/sneakers.json?name=${payload.name}`)
+    .then((response) => {
+      if (response.ok) {
+        // Shoe name doesn't exist, proceed to create the shoe
+        return fetch(`${endpoint}/sneakers.json`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        });
+      }
+      // Shoe name already exists, proceed to create the colorway
+      return createColor(payload.colorway);
+    })
     .then((response) => response.json())
     .then((data) => resolve(data))
-    .catch(reject);
+    .catch((error) => reject(error));
 });
 
 const getSingleSneaker = (firebaseKey) => new Promise((resolve, reject) => {
@@ -116,17 +126,7 @@ const getEachSneaker = () => new Promise((resolve, reject) => {
     })
     .catch(reject);
 });
-const getColorsByShoe = (firebaseKey) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/sneakers.json?orderBy="shoe_id"&equalTo="${firebaseKey}"`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => resolve(Object.values(data)))
-    .catch(reject);
-});
+
 export {
   getSneakers,
   createSneaker,

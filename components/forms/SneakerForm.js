@@ -14,7 +14,6 @@ const initialState = {
   image: '',
   favorite: '',
   nickname: '',
-  shoe_id: '',
   uid: '',
 };
 
@@ -163,7 +162,6 @@ SneakerForm.propTypes = {
     favorite: PropTypes.bool,
     nickname: PropTypes.string,
     firebaseKey: PropTypes.string,
-    shoe_id: PropTypes.string,
   }),
 };
 

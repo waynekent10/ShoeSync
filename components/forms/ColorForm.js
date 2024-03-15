@@ -10,6 +10,7 @@ const initialState = {
   image: '',
   primary_color: '',
   secondary_color: '',
+  shoe_id: '',
 };
 
 function ColorForm({ obj }) {
@@ -138,6 +139,7 @@ ColorForm.propTypes = {
     primary_color: PropTypes.string,
     secondary_color: PropTypes.string,
     firebaseKey: PropTypes.string,
+    shoe_id: PropTypes.string,
   }),
 };
 
