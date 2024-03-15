@@ -109,10 +109,10 @@ function ColorForm({ obj }) {
       <FloatingLabel controlId="floatingSelect" label="Shoe">
         <Form.Select
           aria-label="Colorway"
-          name="shoe_id"
+          name="shoe_name"
           onChange={handleChange}
           className="mb-3"
-          value={formInput.firebaseKey}
+          value={formInput.shoe_name}
           required
         >
           <option value="">Select a Shoe</option>

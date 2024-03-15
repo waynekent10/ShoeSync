@@ -87,17 +87,6 @@ function SneakerForm({ obj }) {
         />
       </FloatingLabel>
 
-      <FloatingLabel controlId="floatingInput1" label="Manufacturer" className="mb-3">
-        <Form.Control
-          type="text"
-          placeholder="Enter the Manufacturer"
-          name="manufacturer"
-          value={formInput.manufacturer}
-          onChange={handleChange}
-          required
-        />
-      </FloatingLabel>
-
       <FloatingLabel controlId="floatingTextarea" label="Brand" className="mb-3">
         <Form.Control
           as="textarea"
@@ -158,7 +147,6 @@ SneakerForm.propTypes = {
     shoe_name: PropTypes.string,
     release_date: PropTypes.string,
     image: PropTypes.string,
-    manufacturer: PropTypes.string,
     favorite: PropTypes.bool,
     nickname: PropTypes.string,
     firebaseKey: PropTypes.string,
