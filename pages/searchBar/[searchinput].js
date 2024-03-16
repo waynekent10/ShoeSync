@@ -12,10 +12,10 @@ export default function Search() {
 
   const searchAllSneakers = () => {
     getSneakers(user.uid).then((sneakerArr) => {
-      const filteredMembers = sneakerArr.filter((sneaker) => sneaker.shoe_name.toLowerCase().includes(searchInput.toLowerCase())
-        || sneaker.shoe_name.toLowerCase().includes(searchInput.toLowerCase()));
+      const filteredSneakers = sneakerArr.filter((sneaker) => sneaker.shoe_name.toLowerCase().includes(searchInput.toLowerCase())
+        || sneaker.brand.toLowerCase().includes(searchInput.toLowerCase()));
 
-      setSearchSneakers(filteredMembers);
+      setSearchSneakers(filteredSneakers);
     });
   };
 
@@ -24,8 +24,8 @@ export default function Search() {
     return () => {
       setSearchSneakers([]);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps, no-undef
-  }, [searchBar]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchInput]);
 
   return (
     <div>
