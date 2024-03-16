@@ -6,7 +6,7 @@ import SneakerCard from '../../components/SneakerCard';
 
 // Define the SearchBar component
 export default function SearchBar() {
-  // State to store the filtered Sneakers
+  // State to store the filtered members
   const [searchSneakers, setSearchSneakers] = useState([]);
   const { user } = useAuth();
   // Get user information from the authentication context
@@ -14,12 +14,12 @@ export default function SearchBar() {
   // Extract the 'searchBar' query parameter from the router
   const { searchBar } = router.query;
 
-  // Function to fetch and filter Sneakers based on the search bar input
+  // Function to fetch and filter members based on the search bar input
   const searchAllSneakers = () => {
-    // Fetch Sneakers using the user's ID
+    // Fetch members using the user's ID
     getSneakers(user.uid).then((sneakers) => {
-      // Filter Sneakers based on name or role containing the search bar input
-      const filteredSneakers = sneakers.filter((sneaker) => sneaker.name.toLowerCase().includes(searchBar) || sneaker.brand.toLowerCase().includes(searchBar));
+      // Filter members based on name or role containing the search bar input
+      const filteredSneakers = sneakers.filter((sneaker) => sneaker.shoe_name.toLowerCase().includes(searchBar) || sneaker.brand.toLowerCase().includes(searchBar));
       setSearchSneakers(filteredSneakers);
     });
   };
