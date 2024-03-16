@@ -32,7 +32,7 @@ export default function Search() {
       <h1>Searched </h1>
       <div className="d-flex flex-wrap">
         {searchSneakers.map((sneaker) => (
-          <SneakerCard key={sneaker.firebaseKey} sneakerObjObj={sneaker} onUpdate={searchAllSneakers} />
+          <SneakerCard key={sneaker.firebaseKey} sneakerObj={sneaker} onUpdate={searchAllSneakers} />
         ))}
       </div>
     </div>
