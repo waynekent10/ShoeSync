@@ -30,8 +30,8 @@ export default function Search() {
   return (
     <>
       <div className="d-flex flex-wrap">
-        {searchSneakers.map((obj) => (
-          <SneakerCard key={obj.firebaseKey} sneakerObj={obj} onUpdate={searchAllSneakers} />
+        {searchSneakers.map((sneaker) => (
+          <SneakerCard key={sneaker.firebaseKey} sneakerObj={sneaker} onUpdate={searchAllSneakers} />
         ))}
       </div>
     </>
