@@ -13,7 +13,7 @@ export default function Search() {
   const searchAllSneakers = () => {
     getSneakers(user.uid).then((sneakerArr) => {
       const filteredMembers = sneakerArr.filter((sneaker) => sneaker.shoe_name.toLowerCase().includes(searchInput.toLowerCase())
-        || sneaker.brand.toLowerCase().includes(searchInput.toLowerCase()));
+        || sneaker.shoe_name.toLowerCase().includes(searchInput.toLowerCase()));
 
       setSearchSneakers(filteredMembers);
     });
