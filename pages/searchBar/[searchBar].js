@@ -8,12 +8,12 @@ export default function Search() {
   const [searchSneakers, setSearchSneakers] = useState([]);
   const router = useRouter();
   const { user } = useAuth();
-  const { searchInput } = router.query;
+  const { searchBar } = router.query;
 
   const searchAllSneakers = () => {
-    getSneakers(user.uid).then((sneakerArr) => {
-      const filteredSneakers = sneakerArr.filter((sneaker) => sneaker.shoe_name.toLowerCase().includes(searchInput.toLowerCase())
-        || sneaker.brand.toLowerCase().includes(searchInput.toLowerCase()));
+    getSneakers(user.uid).then((sneakers) => {
+      const filteredSneakers = sneakers.filter((sneaker) => sneaker.shoe_name.toLowerCase().includes(searchBar.toLowerCase())
+        || sneaker.brand.toLowerCase().includes(searchBar.toLowerCase()));
 
       setSearchSneakers(filteredSneakers);
     });
@@ -25,16 +25,15 @@ export default function Search() {
       setSearchSneakers([]);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchInput]);
+  }, [searchBar]);
 
   return (
-    <div>
-      <h1>Searched </h1>
+    <>
       <div className="d-flex flex-wrap">
-        {searchSneakers.map((sneaker) => (
-          <SneakerCard key={sneaker.firebaseKey} sneakerObj={sneaker} onUpdate={searchAllSneakers} />
+        {searchSneakers.map((obj) => (
+          <SneakerCard key={obj.firebaseKey} sneakerObj={obj} onUpdate={searchAllSneakers} />
         ))}
       </div>
-    </div>
+    </>
   );
 }
