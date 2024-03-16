@@ -45,7 +45,7 @@ SneakerCard.propTypes = {
     shoe_name: PropTypes.string,
     release_year: PropTypes.string,
     image: PropTypes.string,
-    manufacturer: PropTypes.string,
+    brand: PropTypes.string,
     favorite: PropTypes.bool,
     nickname: PropTypes.string,
     shoe_id: PropTypes.string,
