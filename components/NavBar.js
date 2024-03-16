@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import {
-  Navbar, Container, Nav, Button,
+  Navbar, Container, Nav, Button, Col, Form, Row,
 } from 'react-bootstrap';
 import Image from 'next/image';
 import { signOut } from '../utils/auth';
@@ -39,6 +39,20 @@ export default function NavBar() {
             <Link passHref href="/sneaker/new">
               <Nav.Link>Add Sneaker</Nav.Link>
             </Link>
+            <Form inline>
+              <Row>
+                <Col xs="auto">
+                  <Form.Control
+                    type="text"
+                    placeholder="Search"
+                    className=" mr-sm-2"
+                  />
+                </Col>
+                <Col xs="auto">
+                  <Button type="submit">Submit</Button>
+                </Col>
+              </Row>
+            </Form>
             <Link passHref href="/brands">
               <Nav.Link>Brands</Nav.Link>
             </Link>

@@ -10,7 +10,6 @@ const initialState = {
   image: '',
   primary_color: '',
   secondary_color: '',
-  shoe_id: '',
 };
 
 function ColorForm({ obj }) {
@@ -73,7 +72,7 @@ function ColorForm({ obj }) {
         />
       </FloatingLabel>
 
-      <FloatingLabel controlId="floatingInput2" label="Primary Color" className="mb-3">
+      <FloatingLabel controlId="floatingInput3" label="Primary Color" className="mb-3">
         <Form.Control
           type="text"
           placeholder="Primary Color"
@@ -84,7 +83,7 @@ function ColorForm({ obj }) {
         />
       </FloatingLabel>
 
-      <FloatingLabel controlId="floatingInput3" label="Secondary Color" className="mb-3">
+      <FloatingLabel controlId="floatingInput4" label="Secondary Color" className="mb-3">
         <Form.Control
           type="text"
           placeholder="Enter Secondary Color"
@@ -128,7 +127,6 @@ ColorForm.propTypes = {
     primary_color: PropTypes.string,
     secondary_color: PropTypes.string,
     firebaseKey: PropTypes.string,
-    shoe_id: PropTypes.string,
   }),
 };
 
