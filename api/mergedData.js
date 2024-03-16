@@ -1,7 +1,7 @@
 import { getSingleBrand } from './brandData';
-import { getSingleColor } from './colorData';
+import { getColorsByShoe, getSingleColor } from './colorData';
 import { deleteSingleCreator, getCreatorShoes, getSingleCreator } from './creatorData';
-import { deleteSingleSneaker, getColorsByShoe, getSingleSneaker } from './shoeData';
+import { deleteSingleSneaker, getSingleSneaker } from './shoeData';
 
 const viewSneakerDetails = (sneakerFirebaseKey) => new Promise((resolve, reject) => {
   getSingleSneaker(sneakerFirebaseKey)
@@ -31,13 +31,22 @@ const deleteCreatorKicks = (creatorId) => new Promise((resolve, reject) => {
   }).catch((error) => reject(error));
 });
 
+// const viewColorDetails = (colorFirebaseKey) => new Promise((resolve, reject) => {
+//   getSingleColor(colorFirebaseKey)
+//     .then((colorObject) => {
+//       getSingleSneaker(colorObject.shoe_id)
+//         .then((sneakerObject) => {
+//           resolve({ sneakerObject, ...colorObject });
+//         });
+//     }).catch((error) => reject(error));
+// });
+
 const viewColorDetails = (colorFirebaseKey) => new Promise((resolve, reject) => {
   Promise.all([getSingleColor(colorFirebaseKey), getColorsByShoe(colorFirebaseKey)])
     .then(([colorObject, colorShoesArray]) => {
-      resolve({ ...colorObject, colors: colorShoesArray });
+      resolve({ ...colorObject, sneaker: colorShoesArray, color: colorShoesArray });
     }).catch((error) => reject(error));
 });
-
 const viewBrandDetails = (brandFirebaseKey) => new Promise((resolve, reject) => {
   getSingleBrand(brandFirebaseKey).then((brandObject) => {
     resolve({ ...brandObject });

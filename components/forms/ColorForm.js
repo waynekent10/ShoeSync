@@ -61,17 +61,6 @@ function ColorForm({ obj }) {
         />
       </FloatingLabel>
 
-      <FloatingLabel controlId="floatingInput2" label="Primary Color" className="mb-3">
-        <Form.Control
-          type="text"
-          placeholder="Primary Color"
-          name="primary_color"
-          value={formInput.primary_color}
-          onChange={handleChange}
-          required
-        />
-      </FloatingLabel>
-
       <FloatingLabel controlId="floatingInput2" label="Shoe Image" className="mb-3">
         <Form.Control
           type="url"
@@ -83,7 +72,7 @@ function ColorForm({ obj }) {
         />
       </FloatingLabel>
 
-      <FloatingLabel controlId="floatingInput2" label="Primary Color" className="mb-3">
+      <FloatingLabel controlId="floatingInput3" label="Primary Color" className="mb-3">
         <Form.Control
           type="text"
           placeholder="Primary Color"
@@ -94,7 +83,7 @@ function ColorForm({ obj }) {
         />
       </FloatingLabel>
 
-      <FloatingLabel controlId="floatingInput3" label="Secondary Color" className="mb-3">
+      <FloatingLabel controlId="floatingInput4" label="Secondary Color" className="mb-3">
         <Form.Control
           type="text"
           placeholder="Enter Secondary Color"
@@ -107,7 +96,7 @@ function ColorForm({ obj }) {
 
       <FloatingLabel controlId="floatingSelect" label="Shoe">
         <Form.Select
-          aria-label="Colorway"
+          aria-label="Color"
           name="shoe_id"
           onChange={handleChange}
           className="mb-3"

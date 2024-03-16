@@ -70,7 +70,7 @@ const getSingleColor = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 const getColorsByShoe = (firebaseKey) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/sneakers.json?orderBy="shoe_id"&equalTo="${firebaseKey}"`, {
+  fetch(`${endpoint}/colors.json?orderBy="shoe_id"&equalTo="${firebaseKey}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -80,7 +80,6 @@ const getColorsByShoe = (firebaseKey) => new Promise((resolve, reject) => {
     .then((data) => resolve(Object.values(data)))
     .catch(reject);
 });
-
 export {
   getColors,
   deleteAColor,
