@@ -40,13 +40,13 @@ export default function NavBar() {
             <Link passHref href="/sneaker/new">
               <Nav.Link>Add Sneaker</Nav.Link>
             </Link>
+            <Link passHref href="/brands">
+              <Nav.Link>Brands</Nav.Link>
+            </Link>
 
             <SearchBar />
             <Button type="search">Search</Button>
 
-            <Link passHref href="/brands">
-              <Nav.Link>Brands</Nav.Link>
-            </Link>
             <Button variant="danger" onClick={signOut}>Sign Out</Button>
           </Nav>
         </Navbar.Collapse>
