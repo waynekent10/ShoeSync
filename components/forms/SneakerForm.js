@@ -5,6 +5,7 @@ import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
 import { createSneaker, updateSneaker } from '../../api/shoeData';
 import { getCreators } from '../../api/creatorData';
+import { getBrands } from '../../api/brandData';
 
 const initialState = {
   shoe_name: '',
@@ -20,11 +21,13 @@ const initialState = {
 function SneakerForm({ obj }) {
   const [formInput, setFormInput] = useState(initialState);
   const [creators, setCreators] = useState([]);
+  const [brands, setBrands] = useState([]);
   const router = useRouter();
   const { user } = useAuth();
 
   useEffect(() => {
     getCreators(user.uid).then(setCreators);
+    getBrands(user.uid).then(setBrands);
 
     if (obj.firebaseKey) setFormInput(obj);
   }, [obj, user]);
@@ -87,15 +90,27 @@ function SneakerForm({ obj }) {
         />
       </FloatingLabel>
 
-      <FloatingLabel controlId="floatingTextarea" label="Brand" className="mb-3">
-        <Form.Control
-          as="textarea"
-          placeholder="Brand"
-          name="brand"
-          value={formInput.brand}
+      <FloatingLabel controlId="floatingSelect" label="Brand">
+        <Form.Select
+          aria-label="Brand"
+          name="brands"
           onChange={handleChange}
+          className="mb-3"
+          value={formInput.name}
           required
-        />
+        >
+          <option value="">Select Brand</option>
+          {
+            brands.map((brand) => (
+              <option
+                key={brand.firebaseKey}
+                value={brand.firebaseKey}
+              >
+                {brand.name}
+              </option>
+            ))
+          }
+        </Form.Select>
       </FloatingLabel>
 
       <FloatingLabel controlId="floatingSelect" label="Creator">
