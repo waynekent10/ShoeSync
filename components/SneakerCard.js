@@ -14,7 +14,7 @@ function SneakerCard({ sneakerObj, onUpdate }) {
     }
   };
 
-  const createdBy = user.uid === sneakerObj.uid ? `Created by: ${user.displayName}` : `Created by: ${user.displayName}`;
+  const createdBy = `Created by: ${user.displayName}`;
 
   return (
     <Card style={{ width: '18rem', margin: '10px' }}>

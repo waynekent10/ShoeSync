@@ -1,22 +1,16 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
-import { Button, Image } from 'react-bootstrap';
-import Link from 'next/link';
-import { viewColorways, viewSneakerDetails } from '../../api/mergedData';
+import { Image } from 'react-bootstrap';
+import { viewSneakerDetails } from '../../api/mergedData';
 import SneakerCard from '../../components/SneakerCard';
 
 export default function ViewSneaker() {
   const [sneakerDetails, setSneakerDetails] = useState({});
-  // eslint-disable-next-line camelcase
-  const [shoe_id, setShoe_id] = useState({});
   const router = useRouter();
   const { firebaseKey } = router.query;
 
   const viewCreatedSneakers = () => {
     viewSneakerDetails(firebaseKey).then(setSneakerDetails);
-  };
-  const viewShoeColors = () => {
-    viewColorways(firebaseKey).then(setShoe_id);
   };
   useEffect(() => {
     viewSneakerDetails(firebaseKey).then(setSneakerDetails);
@@ -24,12 +18,6 @@ export default function ViewSneaker() {
 
   return (
     <>
-      <div className="text-center my-4">
-        <Link href="/colorway/new" passHref>
-          <Button>Add Coloway</Button>
-        </Link>
-      </div>
-
       <div className="mt-5 d-flex flex-wrap">
         <div className="d-flex flex-column">
           <Image src={sneakerDetails.image} alt={sneakerDetails.shoe_name} style={{ width: '300px' }} />
@@ -42,9 +30,6 @@ export default function ViewSneaker() {
         <div className="d-flex flex-wrap">
           {sneakerDetails.sneakers?.map((sneaker) => (
             <SneakerCard key={sneaker.firebaseKey} sneakerObj={sneaker} onUpdate={viewCreatedSneakers} />
-          ))}
-          {shoe_id.sneakers?.map((sneaker) => (
-            <SneakerCard key={sneaker.firebaseKey} sneakerObj={sneaker} onUpdate={viewShoeColors} />
           ))}
         </div>
       </div>
