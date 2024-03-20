@@ -14,17 +14,18 @@ function SneakerCard({ sneakerObj, onUpdate }) {
     }
   };
 
-  const createdBy = `Created by: ${user.displayName}`;
+  const submittedBy = `Submitted by: ${user.displayName}`;
 
   return (
     <Card style={{ width: '18rem', margin: '10px' }}>
       <Card.Img variant="top" src={sneakerObj.image} alt={sneakerObj.shoe_name} style={{ height: '400px' }} />
       <Card.Body>
-        <Card.Title>{sneakerObj.shoe_name}</Card.Title>
+        <Card.Title>Name: {sneakerObj.shoe_name}</Card.Title>
+        <Card.Body>Brand: {sneakerObj.brand}</Card.Body>
         <Link href={`/sneaker/${sneakerObj.firebaseKey}`} passHref>
           <Button variant="primary" className="m-2">VIEW</Button>
         </Link>
-        <Card.Text>{createdBy}</Card.Text>
+        <Card.Text>{submittedBy}</Card.Text>
         {user.uid === sneakerObj.uid && (
           <>
             <Link href={`/sneaker/edit/${sneakerObj.firebaseKey}`} passHref>

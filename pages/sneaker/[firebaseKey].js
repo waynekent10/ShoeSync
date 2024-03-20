@@ -23,9 +23,9 @@ export default function ViewSneaker() {
           <Image src={sneakerDetails.image} alt={sneakerDetails.shoe_name} style={{ width: '300px' }} />
         </div>
         <div className="text-white ms-5 details">
-          <h5>{sneakerDetails.shoe_name}</h5>
-          <p>{sneakerDetails.release_date}</p>
-          <p>{sneakerDetails.brand}</p>
+          <h5>Shoe Name:{sneakerDetails.shoe_name}</h5>
+          <p>Release Date: {sneakerDetails.release_date}</p>
+          <p>Brand: {sneakerDetails.brand}</p>
         </div>
         <div className="d-flex flex-wrap">
           {sneakerDetails.sneakers?.map((sneaker) => (
