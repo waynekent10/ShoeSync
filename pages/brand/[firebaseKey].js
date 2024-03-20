@@ -18,8 +18,8 @@ export default function ViewBrand() {
         <Image src={brandDetails.image} alt={brandDetails.name} style={{ width: '300px' }} />
       </div>
       <div className="text-white ms-5 details">
-        <h5>{brandDetails.name}</h5>
-        <p>{brandDetails.bio}</p>
+        <h5>Brand: {brandDetails.name}</h5>
+        <p>Bio: {brandDetails.bio}</p>
       </div>
     </div>
   );

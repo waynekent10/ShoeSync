@@ -24,9 +24,9 @@ export default function ViewCreator() {
         </div>
 
         <div className="text-white ms-5 details">
-          <h5>{creatorDetails.name}</h5>
-          <h5>{creatorDetails.company}</h5>
-          <p>{creatorDetails.bio}</p>
+          <h5>Name: {creatorDetails.name}</h5>
+          <h5>Brand Association:{creatorDetails.company}</h5>
+          <p>Bio: {creatorDetails.bio}</p>
         </div>
       </div>
       <hr />
