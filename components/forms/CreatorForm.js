@@ -37,7 +37,7 @@ function CreatorForm({ obj }) {
       createCreator(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateCreator(patchPayload).then(() => {
-          router.push('/creator');
+          router.push('/creators');
         });
       });
     }
@@ -80,12 +80,12 @@ function CreatorForm({ obj }) {
         />
       </FloatingLabel>
 
-      <FloatingLabel controlId="floatingTextarea" label="bio" className="mb-3">
+      <FloatingLabel controlId="floatingTextarea" label="Bio" className="mb-3">
         <Form.Control
           as="textarea"
           placeholder="Bio"
           style={{ height: '100px' }}
-          name="description"
+          name="bio"
           value={formInput.bio}
           onChange={handleChange}
           required
