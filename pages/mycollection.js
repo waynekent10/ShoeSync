@@ -34,14 +34,14 @@ export default function MyCollection() {
         <Link href="/sneaker/new" passHref>
           <Button>Add Shoe</Button>
         </Link>
-        <section>My Favorites</section>
+        <section><h2>My Favorites</h2></section>
         <div className="d-flex flex-wrap">
           {favorites.map((sneaker) => (
             <SneakerCard key={sneaker.firebaseKey} sneakerObj={sneaker} onUpdate={getFavoriteSneakers} />
           ))}
         </div>
 
-        <section>New Arrivals</section>
+        <section><h2>New Arrivals</h2></section>
         <div className="d-flex flex-wrap">
           {sneakers.map((sneaker) => (
             <SneakerCard key={sneaker.firebaseKey} sneakerObj={sneaker} onUpdate={getAllTheSneakers} />
