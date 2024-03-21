@@ -14,7 +14,7 @@ function SneakerCard({ sneakerObj, onUpdate }) {
     }
   };
 
-  const submittedBy = `Submitted by: ${user.displayName}`;
+  const submittedBy = user.uid === sneakerObj.uid ? `Submitted by: ${user.displayName}` : `Submitted by: ${user.displayName}`;
 
   return (
     <Card style={{ width: '18rem', margin: '10px' }}>
@@ -27,14 +27,14 @@ function SneakerCard({ sneakerObj, onUpdate }) {
         </Link>
         <Card.Text>{submittedBy}</Card.Text>
         {user.uid === sneakerObj.uid && (
-          <>
-            <Link href={`/sneaker/edit/${sneakerObj.firebaseKey}`} passHref>
-              <Button variant="info" className="m-2">EDIT</Button>
-            </Link>
-            <Button variant="danger" onClick={deleteDaShoe} className="m-2">
-              DELETE
-            </Button>
-          </>
+        <>
+          <Link href={`/sneaker/edit/${sneakerObj.firebaseKey}`} passHref>
+            <Button variant="info" className="m-2">EDIT</Button>
+          </Link>
+          <Button variant="danger" onClick={deleteDaShoe} className="m-2">
+            DELETE
+          </Button>
+        </>
         )}
       </Card.Body>
     </Card>

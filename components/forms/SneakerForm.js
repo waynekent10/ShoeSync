@@ -11,7 +11,6 @@ const initialState = {
   shoe_name: '',
   release_date: '',
   brand: '',
-  manufacturer: '',
   image: '',
   favorite: '',
   nickname: '',
@@ -48,7 +47,7 @@ function SneakerForm({ obj }) {
       createSneaker(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateSneaker(patchPayload).then(() => {
-          router.push('/');
+          router.push('/sneaker');
         });
       });
     }

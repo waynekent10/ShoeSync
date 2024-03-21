@@ -83,7 +83,7 @@ const getShoesByCreator = (firebaseKey) => new Promise((resolve, reject) => {
 });
 
 const favoriteKicks = (uid) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/sneakers.json?orderBy="favorite"&orderBy="${uid}"&equalTo=true`, {
+  fetch(`${endpoint}/sneakers.json?orderBy="uid"&orderBy="${uid}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
