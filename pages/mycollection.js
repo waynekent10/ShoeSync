@@ -36,13 +36,9 @@ export default function MyCollection() {
         </Link>
         <section>My Favorites</section>
         <div className="d-flex flex-wrap">
-          {favorites.length === 0 ? (
-            <p> no favorites yet. </p>
-          ) : (
-            favorites.map((sneaker) => (
-              <SneakerCard key={sneaker.firebaseKey} sneakerObj={sneaker} onUpdate={getFavoriteSneakers} />
-            ))
-          )}
+          {favorites.map((sneaker) => (
+            <SneakerCard key={sneaker.firebaseKey} sneakerObj={sneaker} onUpdate={getFavoriteSneakers} />
+          ))}
         </div>
 
         <section>New Arrivals</section>
