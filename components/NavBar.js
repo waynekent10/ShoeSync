@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
+import PropTypes from 'prop-types';
 import Link from 'next/link';
 import {
   Navbar, Container, Nav, Button,
@@ -9,7 +10,7 @@ import { signOut } from '../utils/auth';
 import logo from '../public/photos/logo.png';
 import SearchBar from './SearchBar';
 
-export default function NavBar() {
+export default function NavBar({ user }) {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
@@ -46,6 +47,15 @@ export default function NavBar() {
 
             <SearchBar />
             <Button type="search">Search</Button>
+            <Link passHref href="/profile">
+              <Nav.Link>
+                <Image
+                  className="profile-img"
+                  src={user.photoURL}
+                  alt={user.displayName}
+                />
+              </Nav.Link>
+            </Link>
 
             <Button variant="danger" onClick={signOut}>Sign Out</Button>
           </Nav>
@@ -54,3 +64,9 @@ export default function NavBar() {
     </Navbar>
   );
 }
+NavBar.propTypes = {
+  user: PropTypes.shape({
+    displayName: PropTypes.string,
+    photoURL: PropTypes.string,
+  }).isRequired,
+};
