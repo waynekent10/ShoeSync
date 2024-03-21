@@ -1,5 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react';
-import Image from 'next/image';
 import { useAuth } from '../utils/context/authContext';
 
 export default function UserProfile() {
@@ -7,7 +7,7 @@ export default function UserProfile() {
 
   return (
     <div>
-      <Image src={user.photoURL} alt="userURL" width="100px" height="100px" />
+      <img src={user.photoURL} alt="userURL" width="100px" height="100px" />
       <h1>{user.displayName}</h1>
       <h2>{user.email}</h2>
       <h3>{user.metadata.lastSignInTime}</h3>
