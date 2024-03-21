@@ -47,7 +47,7 @@ function SneakerForm({ obj }) {
       createSneaker(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateSneaker(patchPayload).then(() => {
-          router.push('/sneaker');
+          router.push('/mycollection');
         });
       });
     }
