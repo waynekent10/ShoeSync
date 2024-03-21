@@ -164,6 +164,7 @@ SneakerForm.propTypes = {
     favorite: PropTypes.bool,
     nickname: PropTypes.string,
     firebaseKey: PropTypes.string,
+    uid: PropTypes.string,
   }),
 };
 
