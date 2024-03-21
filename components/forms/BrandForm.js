@@ -31,7 +31,7 @@ function BrandForm({ obj }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (obj.firebaseKey) {
-      updateBrand(formInput).then(() => router.push(`/brands/${obj.firebaseKey}`));
+      updateBrand(formInput).then(() => router.push(`/brand/${obj.firebaseKey}`));
     } else {
       const payload = { ...formInput, uid: user.uid };
       createBrand(payload).then(({ name }) => {

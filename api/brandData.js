@@ -46,7 +46,7 @@ const getSingleBrand = (firebaseKey) => new Promise((resolve, reject) => {
 });
 
 const deleteSingleBrand = (firebaseKey) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/brand/${firebaseKey}.json`, {
+  fetch(`${endpoint}/brands/${firebaseKey}.json`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
