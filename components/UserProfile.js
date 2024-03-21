@@ -1,6 +1,5 @@
 import React from 'react';
 import Image from 'next/image';
-import PropTypes from 'prop-types';
 import { useAuth } from '../utils/context/authContext';
 
 export default function UserProfile() {
@@ -15,10 +14,3 @@ export default function UserProfile() {
     </div>
   );
 }
-
-UserProfile.propTypes = {
-  user: PropTypes.shape({
-    displayName: PropTypes.string,
-    photoURL: PropTypes.string,
-  }).isRequired,
-};

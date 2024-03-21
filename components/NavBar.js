@@ -47,18 +47,12 @@ export default function NavBar({ user }) {
 
             <SearchBar />
             <Button type="search">Search</Button>
-            <Link passHref href="/profile">
-              <Nav.Link>
-                <Image
-                  className="profile-img"
-                  src={user.photoURL}
-                  alt={user.displayName}
-                />
-              </Nav.Link>
-            </Link>
 
             <Button variant="danger" onClick={signOut}>Sign Out</Button>
           </Nav>
+          <Link passHref href="/profile">
+            <Nav.Link><Image className="profile-img" src={user.photoURL} alt={user.displayName} /></Nav.Link>
+          </Link>
         </Navbar.Collapse>
       </Container>
     </Navbar>
