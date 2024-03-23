@@ -19,6 +19,7 @@ function SneakerCard({ sneakerObj, onUpdate }) {
       <Card.Body>
         <Card.Title>Name: {sneakerObj.shoe_name}</Card.Title>
         <Card.Body>Brand: {sneakerObj.brand}</Card.Body>
+        <p>Nickname:{sneakerObj.nickname}</p>
         <Card.Text>Entered by: {user && user.uid === sneakerObj.uid ? user.displayName : sneakerObj.user_name}</Card.Text>
 
         <Link href={`/sneaker/${sneakerObj.firebaseKey}`} passHref>
