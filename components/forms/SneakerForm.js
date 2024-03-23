@@ -97,6 +97,16 @@ function SneakerForm({ obj }) {
         />
       </FloatingLabel>
 
+      <FloatingLabel controlId="floatingInput2" label="Enter Nickname" className="mb-3">
+        <Form.Control
+          type="text"
+          placeholder="Enter Nickname"
+          name="nickname"
+          value={formInput.nickname}
+          onChange={handleChange}
+        />
+      </FloatingLabel>
+
       <FloatingLabel controlId="floatingSelect" label="Creator">
         <Form.Select
           aria-label="Creator"
