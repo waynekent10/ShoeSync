@@ -24,7 +24,7 @@ export default function Brand() {
         <title>Brand</title>
       </Head>
       <div className="text-center my-4">
-        <Link href="/brands/new" passHref>
+        <Link href="/brand/new" passHref>
           <Button>Add A Brand</Button>
         </Link>
       </div>

@@ -37,7 +37,7 @@ function BrandForm({ obj }) {
       createBrand(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateBrand(patchPayload).then(() => {
-          router.push('/brand');
+          router.push('/brands');
         });
       });
     }
@@ -74,7 +74,7 @@ function BrandForm({ obj }) {
           as="textarea"
           placeholder="Bio"
           style={{ height: '100px' }}
-          name="description"
+          name="bio"
           value={formInput.bio}
           onChange={handleChange}
           required
