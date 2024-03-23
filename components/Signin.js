@@ -13,10 +13,9 @@ function Signin() {
         margin: '0 auto',
       }}
     >
-      <h1>Welcome</h1>
-      <p>Click the button below to login!</p>
+      <h1>Welcome to Sole Sync!</h1>
       <Button type="button" size="lg" className="btn btn-dark" onClick={signIn}>
-        Sign In
+        Show me the shoes
       </Button>
     </div>
   );
