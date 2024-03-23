@@ -17,7 +17,7 @@ export default function NavBar() {
           <Navbar.Brand>
             <Image
               src={logo}
-              className="img"
+              className="logo-img"
               width={75}
               height={75}
               alt="Sole Sync logo"
