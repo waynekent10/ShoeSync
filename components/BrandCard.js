@@ -15,6 +15,7 @@ function BrandCard({ brandObj, onUpdate }) {
       <Card.Img variant="top" src={brandObj.image} alt={brandObj.name} style={{ height: '400px' }} />
       <Card.Body>
         <Card.Title>{brandObj.name}</Card.Title>
+        <p className="card-text bold">{brandObj.favorite && <span>Favorite 🏬<br /></span> }</p>
         <Link href={`/brand/${brandObj.firebaseKey}`} passHref>
           <Button variant="primary" className="m-2">VIEW</Button>
         </Link>
