@@ -83,7 +83,7 @@ const getShoesByCreator = (firebaseKey) => new Promise((resolve, reject) => {
 });
 
 const favoriteKicks = (uid) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/sneakers.json?orderBy="uid"&equalTo="${uid}"&orderBy="favorite"&equalTo=true`, {
+  fetch(`${endpoint}/sneakers.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -91,11 +91,8 @@ const favoriteKicks = (uid) => new Promise((resolve, reject) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      if (data) {
-        resolve(Object.values(data));
-      } else {
-        resolve([]);
-      }
+      const favorites = Object.values(data).filter((item) => item.favorite);
+      resolve(favorites);
     })
     .catch(reject);
 });
@@ -116,17 +113,6 @@ const getEachSneaker = () => new Promise((resolve, reject) => {
     })
     .catch(reject);
 });
-const getColorsByShoe = (firebaseKey) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/sneakers.json?orderBy="shoe_id"&equalTo="${firebaseKey}"`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => resolve(Object.values(data)))
-    .catch(reject);
-});
 export {
   getSneakers,
   createSneaker,
@@ -136,5 +122,4 @@ export {
   getShoesByCreator,
   favoriteKicks,
   getEachSneaker,
-  getColorsByShoe,
 };

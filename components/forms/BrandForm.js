@@ -9,7 +9,7 @@ const initialState = {
   name: '',
   bio: '',
   image: '',
-  favorite: '',
+  favorite: false,
 };
 
 function BrandForm({ obj }) {
@@ -37,7 +37,7 @@ function BrandForm({ obj }) {
       createBrand(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateBrand(patchPayload).then(() => {
-          router.push('/brands');
+          router.push('/brand');
         });
       });
     }
