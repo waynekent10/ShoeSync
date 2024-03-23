@@ -37,7 +37,7 @@ function SneakerForm({ obj }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (obj.firebaseKey) {
-      updateSneaker(formInput).then(() => router.push(`/sneaker/${obj.firebaseKey}`));
+      updateSneaker(formInput).then(() => router.push('/'));
     } else {
       const payload = { ...formInput, uid: user.uid, user_name: user.displayName };
       createSneaker(payload).then(({ name }) => {
