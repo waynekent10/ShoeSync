@@ -12,7 +12,7 @@ import SearchBar from './SearchBar';
 export default function NavBar() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Container>
+      <Container fluid>
         <Link passHref href="/">
           <Navbar.Brand>
             <Image
@@ -49,7 +49,7 @@ export default function NavBar() {
             <SearchBar />
             <Button type="search">Search</Button>
 
-            <Button variant="danger" onClick={signOut}>Sign Out</Button>
+            <Button variant="btn btn-outline-danger" onClick={signOut}>Sign Out</Button>
           </Nav>
 
         </Navbar.Collapse>
