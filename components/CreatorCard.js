@@ -17,12 +17,12 @@ function CreatorCard({ creatorObj, onUpdate }) {
       <Card.Body>
         <Card.Title>{creatorObj.name}</Card.Title>
         <Link href={`/creator/${creatorObj.firebaseKey}`} passHref>
-          <Button variant="primary" className="m-2">VIEW</Button>
+          <Button variant="success" className="m-2">VIEW</Button>
         </Link>
         <Link href={`/creator/edit/${creatorObj.firebaseKey}`} passHref>
-          <Button variant="info">EDIT</Button>
+          <Button variant="warning">EDIT</Button>
         </Link>
-        <Button variant="danger" onClick={deleteThisCreator} className="m-2">
+        <Button variant="secondary" onClick={deleteThisCreator} className="m-2">
           DELETE
         </Button>
       </Card.Body>

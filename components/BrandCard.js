@@ -17,12 +17,12 @@ function BrandCard({ brandObj, onUpdate }) {
         <Card.Title>{brandObj.name}</Card.Title>
         <p className="card-text bold">{brandObj.favorite && <span>Favorite 🏬<br /></span> }</p>
         <Link href={`/brand/${brandObj.firebaseKey}`} passHref>
-          <Button variant="primary" className="m-2">VIEW</Button>
+          <Button variant="success" className="m-2">VIEW</Button>
         </Link>
         <Link href={`/brand/edit/${brandObj.firebaseKey}`} passHref>
-          <Button variant="info" className="m-2">EDIT</Button>
+          <Button variant="warning" className="m-2">EDIT</Button>
         </Link>
-        <Button variant="danger" onClick={deleteTheBrand} className="m-2">
+        <Button variant="secondary" onClick={deleteTheBrand} className="m-2">
           DELETE
         </Button>
       </Card.Body>

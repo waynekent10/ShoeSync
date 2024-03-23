@@ -22,14 +22,14 @@ function SneakerCard({ sneakerObj, onUpdate }) {
         <Card.Text>Entered by: {user && user.uid === sneakerObj.uid ? user.displayName : sneakerObj.user_name}</Card.Text>
 
         <Link href={`/sneaker/${sneakerObj.firebaseKey}`} passHref>
-          <Button variant="primary" className="m-2">VIEW</Button>
+          <Button variant="success" className="m-2">VIEW</Button>
         </Link>
         {user && user.uid === sneakerObj.uid && (
           <>
             <Link href={`/sneaker/edit/${sneakerObj.firebaseKey}`} passHref>
-              <Button variant="info" className="m-2">EDIT</Button>
+              <Button variant="warning" className="m-2">EDIT</Button>
             </Link>
-            <Button variant="danger" onClick={deleteDaShoe} className="m-2">
+            <Button variant="secondary" onClick={deleteDaShoe} className="m-2">
               DELETE
             </Button>
           </>
