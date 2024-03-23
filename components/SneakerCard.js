@@ -19,7 +19,8 @@ function SneakerCard({ sneakerObj, onUpdate }) {
       <Card.Body>
         <Card.Title>Name: {sneakerObj.shoe_name}</Card.Title>
         <Card.Body>Brand: {sneakerObj.brand}</Card.Body>
-        <Card.Text>Entered by: {user && user.uid === sneakerObj.uid ? user.displayName : 'Anonymous'}</Card.Text>
+        <Card.Text>Entered by: {user && user.uid === sneakerObj.uid ? user.displayName : sneakerObj.user_name}</Card.Text>
+
         <Link href={`/sneaker/${sneakerObj.firebaseKey}`} passHref>
           <Button variant="primary" className="m-2">VIEW</Button>
         </Link>
@@ -48,6 +49,7 @@ SneakerCard.propTypes = {
     nickname: PropTypes.string,
     firebaseKey: PropTypes.string,
     uid: PropTypes.string,
+    user_name: PropTypes.string,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
 };
