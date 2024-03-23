@@ -49,7 +49,7 @@ export default function NavBar() {
             <SearchBar />
             <Button type="search">Search</Button>
 
-            <Button variant="btn btn-outline-danger" onClick={signOut}>Sign Out</Button>
+            <Button className="signOutbtn" variant="btn btn-outline-danger" onClick={signOut}>Sign Out</Button>
           </Nav>
 
         </Navbar.Collapse>
