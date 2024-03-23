@@ -5,28 +5,24 @@ import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
 import { createSneaker, updateSneaker } from '../../api/shoeData';
 import { getCreators } from '../../api/creatorData';
-import { getBrands } from '../../api/brandData';
 
 const initialState = {
   shoe_name: '',
   release_date: '',
   brand: '',
   image: '',
-  favorite: '',
+  favorite: false,
   nickname: '',
-  uid: '',
 };
 
 function SneakerForm({ obj }) {
   const [formInput, setFormInput] = useState(initialState);
   const [creators, setCreators] = useState([]);
-  const [brands, setBrands] = useState([]);
   const router = useRouter();
   const { user } = useAuth();
 
   useEffect(() => {
     getCreators(user.uid).then(setCreators);
-    getBrands(user.uid).then(setBrands);
 
     if (obj.firebaseKey) setFormInput(obj);
   }, [obj, user]);
@@ -43,15 +39,16 @@ function SneakerForm({ obj }) {
     if (obj.firebaseKey) {
       updateSneaker(formInput).then(() => router.push(`/sneaker/${obj.firebaseKey}`));
     } else {
-      const payload = { ...formInput, uid: user.uid };
+      const payload = { ...formInput, uid: user.uid, user_name: user.displayName };
       createSneaker(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateSneaker(patchPayload).then(() => {
-          router.push('/mycollection');
+          router.push('/');
         });
       });
     }
   };
+
   return (
     <Form onSubmit={handleSubmit}>
       <h2 className="text-white mt-5">{obj.firebaseKey ? 'Update' : 'Create'} Sneaker</h2>
@@ -89,27 +86,15 @@ function SneakerForm({ obj }) {
         />
       </FloatingLabel>
 
-      <FloatingLabel controlId="floatingSelect" label="Brand">
-        <Form.Select
-          aria-label="Brand"
-          name="brands"
+      <FloatingLabel controlId="floatingInput2" label="Enter Brand" className="mb-3">
+        <Form.Control
+          type="text"
+          placeholder="Enter Brand"
+          name="brand"
+          value={formInput.brand}
           onChange={handleChange}
-          className="mb-3"
-          value={formInput.name}
           required
-        >
-          <option value="">Select Brand</option>
-          {
-            brands.map((brand) => (
-              <option
-                key={brand.firebaseKey}
-                value={brand.firebaseKey}
-              >
-                {brand.name}
-              </option>
-            ))
-          }
-        </Form.Select>
+        />
       </FloatingLabel>
 
       <FloatingLabel controlId="floatingSelect" label="Creator">
@@ -159,6 +144,7 @@ function SneakerForm({ obj }) {
 SneakerForm.propTypes = {
   obj: PropTypes.shape({
     shoe_name: PropTypes.string,
+    brand: PropTypes.string,
     release_date: PropTypes.string,
     image: PropTypes.string,
     favorite: PropTypes.bool,

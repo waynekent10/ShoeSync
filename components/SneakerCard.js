@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import { Button, Card } from 'react-bootstrap';
 import Link from 'next/link';
 import { deleteSingleSneaker } from '../api/shoeData';
+import { useAuth } from '../utils/context/authContext';
 
 function SneakerCard({ sneakerObj, onUpdate }) {
+  const { user } = useAuth();
   const deleteDaShoe = () => {
     if (window.confirm(`Delete ${sneakerObj.shoe_name}?`)) {
       deleteSingleSneaker(sneakerObj.firebaseKey).then(() => onUpdate());
@@ -17,16 +19,20 @@ function SneakerCard({ sneakerObj, onUpdate }) {
       <Card.Body>
         <Card.Title>Name: {sneakerObj.shoe_name}</Card.Title>
         <Card.Body>Brand: {sneakerObj.brand}</Card.Body>
+        <Card.Text>Entered by: {user && user.uid === sneakerObj.uid ? user.displayName : 'Anonymous'}</Card.Text>
         <Link href={`/sneaker/${sneakerObj.firebaseKey}`} passHref>
           <Button variant="primary" className="m-2">VIEW</Button>
         </Link>
-
-        <Link href={`/sneaker/edit/${sneakerObj.firebaseKey}`} passHref>
-          <Button variant="info" className="m-2">EDIT</Button>
-        </Link>
-        <Button variant="danger" onClick={deleteDaShoe} className="m-2">
-          DELETE
-        </Button>
+        {user && user.uid === sneakerObj.uid && (
+          <>
+            <Link href={`/sneaker/edit/${sneakerObj.firebaseKey}`} passHref>
+              <Button variant="info" className="m-2">EDIT</Button>
+            </Link>
+            <Button variant="danger" onClick={deleteDaShoe} className="m-2">
+              DELETE
+            </Button>
+          </>
+        )}
       </Card.Body>
     </Card>
   );
@@ -40,7 +46,6 @@ SneakerCard.propTypes = {
     brand: PropTypes.string,
     favorite: PropTypes.bool,
     nickname: PropTypes.string,
-    shoe_id: PropTypes.string,
     firebaseKey: PropTypes.string,
     uid: PropTypes.string,
   }).isRequired,

@@ -20,8 +20,12 @@ export default function MyCollection() {
   };
 
   useEffect(() => {
-    getFavoriteSneakers(user.uid);
     getAllTheSneakers(user.uid);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
+
+  useEffect(() => {
+    getFavoriteSneakers(user.uid);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
   return (
@@ -34,19 +38,27 @@ export default function MyCollection() {
         <Link href="/sneaker/new" passHref>
           <Button>Add Shoe</Button>
         </Link>
-        <section>My Favorites</section>
-        <div className="d-flex flex-wrap">
-          {favorites.map((sneaker) => (
-            <SneakerCard key={sneaker.firebaseKey} sneakerObj={sneaker} onUpdate={getFavoriteSneakers} />
-          ))}
-        </div>
+        <section>
+          <h2>My Favorites</h2>
+          {favorites.length === 0 ? (
+            <p>No favs! Whats the problem!?</p>
+          ) : (
+            <div className="d-flex flex-wrap">
+              {favorites.map((sneaker) => (
+                <SneakerCard key={sneaker.firebaseKey} sneakerObj={sneaker} onUpdate={getFavoriteSneakers} />
+              ))}
+            </div>
+          )}
+        </section>
 
-        <section>New Arrivals</section>
-        <div className="d-flex flex-wrap">
-          {sneakers.map((sneaker) => (
-            <SneakerCard key={sneaker.firebaseKey} sneakerObj={sneaker} onUpdate={getAllTheSneakers} />
-          ))}
-        </div>
+        <section>
+          <h2>New Arrivals</h2>
+          <div className="d-flex flex-wrap">
+            {sneakers.map((sneaker) => (
+              <SneakerCard key={sneaker.firebaseKey} sneakerObj={sneaker} onUpdate={getAllTheSneakers} />
+            ))}
+          </div>
+        </section>
       </div>
     </>
   );
