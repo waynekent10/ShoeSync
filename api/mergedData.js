@@ -7,41 +7,34 @@ const viewSneakerDetails = (sneakerFirebaseKey) => new Promise((resolve, reject)
     .then((sneakerObject) => {
       getSingleCreator(sneakerObject.creator_id)
         .then((creatorObject) => {
-          getSingleBrand(sneakerObject.brand_id)
-            .then((brandObject) => {
-              resolve({ creatorObject, brandObject, ...sneakerObject });
-            });
-        }).catch((error) => reject(error));
-    });
+          resolve({ creatorObject, ...sneakerObject });
+        });
+    }).catch((error) => reject(error));
 });
 
 const viewCreatorDetails = (creatorFirebaseKey) => new Promise((resolve, reject) => {
   Promise.all([getSingleCreator(creatorFirebaseKey), getCreatorShoes(creatorFirebaseKey)])
     .then(([creatorObject, creatorShoesArray]) => {
       resolve({ ...creatorObject, sneakers: creatorShoesArray });
-    })
-    .catch((error) => reject(error));
+    }).catch((error) => reject(error));
 });
 
 const deleteCreatorKicks = (creatorId) => new Promise((resolve, reject) => {
-  getCreatorShoes(creatorId)
-    .then((sneakersArray) => {
-      console.warn(sneakersArray, 'Creators Kicks');
-      const deleteShoePromises = sneakersArray.map((sneaker) => deleteSingleSneaker(sneaker.firebaseKey));
+  getCreatorShoes(creatorId).then((sneakersArray) => {
+    console.warn(sneakersArray, 'Creators Kicks');
+    const deleteShoePromises = sneakersArray.map((sneaker) => deleteSingleSneaker(sneaker.firebaseKey));
 
-      Promise.all(deleteShoePromises)
-        .then(() => deleteSingleCreator(creatorId).then(resolve))
-        .catch((error) => reject(error));
-    })
-    .catch((error) => reject(error));
+    Promise.all(deleteShoePromises).then(() => {
+      deleteSingleCreator(creatorId).then(resolve);
+    });
+  }).catch((error) => reject(error));
 });
 
 const viewBrandDetails = (brandFirebaseKey) => new Promise((resolve, reject) => {
-  getSingleBrand(brandFirebaseKey)
-    .then((brandObject) => resolve({ ...brandObject }))
-    .catch((error) => reject(error));
+  getSingleBrand(brandFirebaseKey).then((brandObject) => {
+    resolve({ ...brandObject });
+  }).catch((error) => reject(error));
 });
-
 export {
   deleteCreatorKicks, viewSneakerDetails, viewCreatorDetails, viewBrandDetails,
 };
