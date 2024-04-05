@@ -17,8 +17,8 @@ export default function ViewBrand() {
       <div className="d-flex flex-column">
         <Image src={brandDetails.image} alt={brandDetails.name} style={{ width: '300px' }} />
       </div>
-      <div className="text-red ms-5 details">
-        <h5>Brand: {brandDetails.name}</h5>
+      <div className="text-black ms-5 details">
+        <h1>Brand: {brandDetails.name}</h1>
         <p>Bio: {brandDetails.bio}</p>
       </div>
     </div>

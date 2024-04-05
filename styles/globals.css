@@ -27,7 +27,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-color: #ffffff;
+  background-color: black;
   color: rgb(255, 0, 0);
   width: 100;
   height: 100;
@@ -39,7 +39,9 @@ body {
   display: flex;
   border: bold solid 10px black;
   row-gap: 3px;
-  background-color: gray;
+  background-color: black;
+  color: white;
+  ;
 
 }
 .img {

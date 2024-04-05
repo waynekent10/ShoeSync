@@ -23,9 +23,10 @@ export default function ViewCreator() {
           <img src={creatorDetails.image} alt={creatorDetails.name} style={{ width: '300px' }} />
         </div>
 
-        <div className="text-red ms-5 details">
-          <h5>Name: {creatorDetails.name}</h5>
-          <h5>Brand Association:{creatorDetails.company}</h5>
+        <div className="text ms-5 details">
+          <h1>Name: {creatorDetails.name}
+            Brand Association:{creatorDetails.company}
+          </h1>
           <p>Bio: {creatorDetails.bio}</p>
         </div>
       </div>

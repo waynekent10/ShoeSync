@@ -15,17 +15,17 @@ function SneakerCard({ sneakerObj, onUpdate }) {
 
   return (
     <Card style={{ width: '18rem', margin: '10px' }}>
-      <Card.Img variant="top" src={sneakerObj.image} alt={sneakerObj.shoe_name} style={{ height: '400px' }} />
+      <Card.Img variant="top" src={sneakerObj.image} alt={sneakerObj.shoe_name} style={{ height: '300px' }} />
       <Card.Body>
         <Card.Title>Name: {sneakerObj.shoe_name}</Card.Title>
         <Card.Body>Brand: {sneakerObj.brand}</Card.Body>
         <p>Nickname:{sneakerObj.nickname}</p>
         <Card.Text>Entered by: {user && user.uid === sneakerObj.uid ? user.displayName : sneakerObj.user_name}</Card.Text>
-
-        <Link href={`/sneaker/${sneakerObj.firebaseKey}`} passHref>
-          <Button variant="success" className="m-2">VIEW</Button>
-        </Link>
-        {user && user.uid === sneakerObj.uid && (
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <Link href={`/sneaker/${sneakerObj.firebaseKey}`} passHref>
+            <Button variant="success" className="m-2">VIEW</Button>
+          </Link>
+          {user && user.uid === sneakerObj.uid && (
           <>
             <Link href={`/sneaker/edit/${sneakerObj.firebaseKey}`} passHref>
               <Button variant="warning" className="m-2">EDIT</Button>
@@ -34,7 +34,8 @@ function SneakerCard({ sneakerObj, onUpdate }) {
               DELETE
             </Button>
           </>
-        )}
+          )}
+        </div>
       </Card.Body>
     </Card>
   );
