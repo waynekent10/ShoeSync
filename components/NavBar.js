@@ -47,7 +47,7 @@ export default function NavBar() {
               <Nav.Link>Profile</Nav.Link>
             </Link>
             <SearchBar />
-            <Button type="search">Search</Button>
+            <Button className="searchBtn" type="search">Search</Button>
 
             <Button className="signOutbtn" variant="btn btn-outline-danger" onClick={signOut}>Sign Out</Button>
           </Nav>
