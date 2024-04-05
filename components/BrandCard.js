@@ -12,19 +12,21 @@ function BrandCard({ brandObj, onUpdate }) {
   };
   return (
     <Card style={{ width: '18rem', margin: '10px' }}>
-      <Card.Img variant="top" src={brandObj.image} alt={brandObj.name} style={{ height: '400px' }} />
+      <Card.Img variant="top" src={brandObj.image} alt={brandObj.name} style={{ height: '300px' }} />
       <Card.Body>
         <Card.Title>{brandObj.name}</Card.Title>
         <p className="card-text bold">{brandObj.favorite && <span>Favorite 🏬<br /></span> }</p>
-        <Link href={`/brand/${brandObj.firebaseKey}`} passHref>
-          <Button variant="success" className="m-2">VIEW</Button>
-        </Link>
-        <Link href={`/brand/edit/${brandObj.firebaseKey}`} passHref>
-          <Button variant="warning" className="m-2">EDIT</Button>
-        </Link>
-        <Button variant="secondary" onClick={deleteTheBrand} className="m-2">
-          DELETE
-        </Button>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <Link href={`/brand/${brandObj.firebaseKey}`} passHref>
+            <Button variant="success" className="m-2">VIEW</Button>
+          </Link>
+          <Link href={`/brand/edit/${brandObj.firebaseKey}`} passHref>
+            <Button variant="warning" className="m-2">EDIT</Button>
+          </Link>
+          <Button variant="secondary" onClick={deleteTheBrand} className="m-2">
+            DELETE
+          </Button>
+        </div>
       </Card.Body>
     </Card>
   );

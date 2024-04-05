@@ -13,7 +13,7 @@ function CreatorCard({ creatorObj, onUpdate }) {
 
   return (
     <Card style={{ width: '18rem', margin: '10px' }}>
-      <Card.Img variant="top" src={creatorObj.image} alt={creatorObj.name} style={{ height: '400px' }} />
+      <Card.Img variant="top" src={creatorObj.image} alt={creatorObj.name} style={{ height: '300px' }} />
       <Card.Body>
         <Card.Title>{creatorObj.name}</Card.Title>
         <Link href={`/creator/${creatorObj.firebaseKey}`} passHref>
