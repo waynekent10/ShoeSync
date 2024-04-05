@@ -23,7 +23,6 @@ a {
 }
 
 body {
-  background-image: url('../public/photos/logo.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
