@@ -23,6 +23,7 @@ a {
 }
 
 body {
+  background: url("/public/photos/dimlogo.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
