@@ -53,7 +53,11 @@ export default function SearchBar() {
   return (
     <>
       <div className="d-flex flex-wrap">
-        {searchSneakers.map((sneaker) => <SneakerCard key={sneaker.firebaseKey} sneakerObj={sneaker} onUpdate={searchAllSneakers} />)}
+        {searchSneakers.length > 0 ? (
+          searchSneakers.map((sneaker) => <SneakerCard key={sneaker.firebaseKey} sneakerObj={sneaker} onUpdate={searchAllSneakers} />)
+        ) : (
+          <p><h1>😢No sneakers found 😢</h1></p>
+        )}
         {searchCreators.map((creator) => <CreatorCard key={creator.firebaseKey} creatorObj={creator} onUpdate={searchAllCreators} />)}
         {searchBrands.map((brand) => <BrandCard key={brand.firebaseKey} brandObj={brand} onUpdate={searchAllBrands} />)}
       </div>
